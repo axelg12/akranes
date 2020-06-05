@@ -1,8 +1,10 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import Drawer from '@material-ui/core/Drawer';
+import { useGoogleMap } from '@react-google-maps/api';
 import { IMarker } from '../interfaces/interfaces';
 import DrawerContent from '../Drawer';
+import ListView from '../ListView';
 import markers from './markers';
 import styles from './styles';
 import './Map.css';
@@ -12,6 +14,7 @@ function Map() {
     setMarker(marker);
   };
   const [selectedMarker, setMarker] = useState<null | IMarker>(null);
+  const [googleMap, setMap] = useState<any>(null);
   useEffect(() => {
     if (window.location.hash) {
       // Remove the hash
@@ -35,40 +38,47 @@ function Map() {
   };
   return (
     <Fragment>
-      <LoadScript googleMapsApiKey="AIzaSyBQfmIUDAO68X06yf2IX6M_sjQV5J-VFUE">
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={zoom}
-          options={{
-            styles: styles as google.maps.MapTypeStyle[],
-            streetViewControl: false,
-            disableDefaultUI: true,
+      <div className="Map">
+        <LoadScript googleMapsApiKey="AIzaSyBQfmIUDAO68X06yf2IX6M_sjQV5J-VFUE">
+          <GoogleMap
+            onLoad={(map: any) => {
+              setMap(map);
+            }}
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={zoom}
+            options={{
+              styles: styles as google.maps.MapTypeStyle[],
+              streetViewControl: false,
+              disableDefaultUI: true,
+            }}
+          >
+            {markers.map((marker: IMarker | undefined, index) => {
+              if (marker) {
+                return (
+                  <Marker
+                    key={index}
+                    onClick={() => onClick(marker)}
+                    position={marker.position}
+                    icon={marker.img}
+                  />
+                );
+              }
+            })}
+          </GoogleMap>
+        </LoadScript>
+        <Drawer
+          className="Map__drawer"
+          anchor="left"
+          open={selectedMarker !== null}
+          onClose={() => {
+            setMarker(null);
           }}
         >
-          {markers.map((marker: IMarker | undefined, index) => {
-            if (marker) {
-              return (
-                <Marker
-                  key={index}
-                  onClick={() => onClick(marker)}
-                  position={marker.position}
-                  icon={marker.img}
-                />
-              );
-            }
-          })}
-        </GoogleMap>
-      </LoadScript>
-      <Drawer
-        anchor="left"
-        open={selectedMarker !== null}
-        onClose={() => {
-          setMarker(null);
-        }}
-      >
-        {selectedMarker && <DrawerContent marker={selectedMarker} />}
-      </Drawer>
+          {selectedMarker && <DrawerContent marker={selectedMarker} />}
+        </Drawer>
+      </div>
+      <ListView googleMap={googleMap} />
     </Fragment>
   );
 }
