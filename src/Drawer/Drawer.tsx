@@ -5,14 +5,13 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { IMarker } from '../interfaces/interfaces';
 import './Drawer.css';
 
 export default function Drawer({ marker }: { marker: IMarker }) {
-  new ClipBoard('.shareButton');
+  new ClipBoard('.MuiButton-label');
   return (
     <Card className="Drawer">
       <CardActionArea>
@@ -31,14 +30,11 @@ export default function Drawer({ marker }: { marker: IMarker }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button
-          className="shareButton"
-          data-clipboard-text={`#${marker.id}`}
-          color="primary"
-        >
-          Share
-        </Button>
-        {marker.info.more && <Link href={marker.info.more}>Learn More</Link>}
+        {marker.info.more && (
+          <Link target="_blank" href={marker.info.more}>
+            Learn More
+          </Link>
+        )}
       </CardActions>
     </Card>
   );

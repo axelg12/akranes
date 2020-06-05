@@ -39,6 +39,8 @@ function Map() {
           zoom={zoom}
           options={{
             styles: styles as google.maps.MapTypeStyle[],
+            streetViewControl: false,
+            disableDefaultUI: true,
           }}
         >
           {markers.map((marker: IMarker, index) => (
@@ -46,7 +48,7 @@ function Map() {
               key={index}
               onClick={() => onClick(marker)}
               position={marker.position}
-              icon="https://i.ibb.co/mRmzFf1/test2.png"
+              icon={marker.img}
             />
           ))}
         </GoogleMap>
