@@ -1,0 +1,74 @@
+{
+  "Sheet1": [
+    {
+      "id": "breidin",
+      "name": "Breiðin",
+      "desc": "Breiðin is the southernmost part of Akranes peninsula and the site of one of the oldest concrete lighthouses in Iceland. From Breiðin there is a beautiful view of the entire Faxaflói bay, especially if the viewer ascends all the way up to the Akranes lighthouse, as from there it is possible to see everything between the peninsula Reykjanesskagi and the glacier Snæfellsjökull when visibility is good.",
+      "lat": "64.307169",
+      "lng": "-22.096173",
+      "img": "https://i.ibb.co/y5PNKZV/breidin.png",
+      "Mynd": "https://live.staticflickr.com/4011/35611986742_66b9bdb9f9_b.jpg",
+      "more": "https://www.skagalif.is/is/utivist/breidin",
+      "Comment": "Vantar samþykki"
+    },
+    {
+      "id": "elinarsaeti",
+      "name": "Elínarsæti",
+      "desc": "The cape Elínarhöfði gets its name from a mythical folk tale and people who walk along the bay Kalmansvík are in for an unforgettable experience. According to the folk tale, Elínarhöfði was named for Elín, the sister of Sæmundur the Learned. It is related in the tale that Elín was able to communicate with her sister Halla by taking a seat by the cape and waving her handkerchief to Halla, who would be sitting on the cliff named Höllubjarg by Straumfjörður.",
+      "lat": "64.331978",
+      "lng": "-22.060369",
+      "img": "https://i.ibb.co/sy1CptC/Elin.png",
+      "Mynd": "https://www.skagalif.is/static/extras/images/.sm/elinarhofdi43.jpg",
+      "Mynd nánar": "https://scontent.frkv2-1.fna.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/19030603_1445559628820472_5983332863811742674_n.jpg?_nc_cat=102&_nc_sid=05277f&efg=eyJpIjoidCJ9&_nc_oc=AQmUwXLSatxI-RN38fxjZVXeBY3rqm_Ko_95BVkKE1ov4xsb4oITBupuf4uCaR6qjss&_nc_ht=scontent.frkv2-1.fna&_nc_tp=14&oh=c7527e5b244aca5295fd146cf60352b0&oe=5EFD1B8E"
+    },
+    {
+      "id": "gardar",
+      "name": "Akranes Folk Museum",
+      "desc": "The Akranes Folk Museum is the best place in Akranes to get familiar with history. The museum was established and opened in 1959 and is situated on the ancient manor of Gardar. The main exhibition highlights the history of fishing, farming, housekeeping and social conditions in and around Akranes in past times. Among the items on display is a rowing boat with full rigging from 1874, a selection of other items connected with seafaring and fishing, tools and equipment of doctors and midwives, old cars and much more. The latest addition to the museum is a lively forge where blacksmiths practice their skills. The forge is sometimes in operation for guests.",
+      "lat": "64.319839",
+      "lng": "-22.044944",
+      "img": "https://i.ibb.co/qJT2p03/byggdasafn.png",
+      "Mynd": "https://m2.mbl.is/Ux75aOwWQPdw8z90ia6KP5rn5xI=/1640x1093/smart/frimg/1/12/31/1123182.jpg",
+      "Mynd nánar": "https://skessuhorn.is/wp-content/uploads/2017/05/N%C3%BD-grunns%C3%BDning-%C3%A1-Bygg%C3%B0asafninu.jpg"
+    },
+    {
+      "id": "gudlaug",
+      "name": "Guðlaug",
+      "desc": "At Langasandur beach you can bathe in the ocean and enjoy the view in Guðlaug, which is a hot pool located in the rockgarden of Langasandur.",
+      "lat": "64.317826",
+      "lng": "-22.064799",
+      "img": "https://i.ibb.co/SVJGzhK/gudlaug.png",
+      "Mynd": "https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/84353765_790334431449303_7150754769319461017_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=103&_nc_ohc=kXyS4Se6aqoAX-xZzV3&oh=593b5f4a0c034fb58631ed45628ab0da&oe=5F059CB5"
+    },
+    {
+      "id": "akrafjall",
+      "name": "Akrafjall",
+      "desc": "Mount Akrafjall is a lone and eye-catching mountain that rises between the coastlines of Hvalfjörður Fjord and Leirárvogur Bay. The mountain covers most of its hosting peninsula’s landmass, as it rises close to the coastlines on each side. Its highest summit is Geirmundartindur with a peak of 643 metres.",
+      "lat": "64.327371",
+      "lng": "-21.983245",
+      "img": "https://i.ibb.co/0cLK0Dr/akrafjall.png",
+      "Mynd": "https://i.pinimg.com/474x/ce/58/99/ce5899cfca364fe2b528c5e38928990f--bucket-list-travel-iceland.jpg",
+      "Mynd nánar": "https://live.staticflickr.com/2093/2089981730_b7727bb812_b.jpg"
+    },
+    {
+      "id": "langisandur",
+      "name": "Langisandur",
+      "desc": "Langisandur is a sandy beach and one of the most popular outdoor areas of Akranes. Langisandur is one of three Blue Flag beaches in Iceland. Guests are welcome to join the local Sea Swimming Club at Langisandur Beach three times a week.",
+      "lat": "64.315472",
+      "lng": "-22.057743",
+      "img": "https://i.ibb.co/s57brf9/langisandur.png",
+      "Mynd": "https://media-cdn.tripadvisor.com/media/photo-s/05/51/07/7a/akra-guesthouse.jpg",
+      "Mynd nánar": "https://live.staticflickr.com/7434/10039949845_4575746249_b.jpg"
+    },
+    {
+      "id": "akratorg",
+      "name": "Sjómaðurinn",
+      "desc": "Á Akratorgi er Sjómaðurinn eftir Martein Guðmundsson sem fæddist 1905 og lést árið 1952. Það er reist til minningar um drukknaða sjómenn. Á undirstöðunni er hending úr kvæðinu Sjómannasöngur eftir Steingrím Thorsteinsson;",
+      "lat": "64.317034",
+      "lng": "-22.083779",
+      "img": "https://i.ibb.co/JQpkM0b/torgid.png",
+      "Mynd": "https://www.flickr.com/photos/ingasig/3362193969/lightbox/",
+      "Mynd nánar": "https://www.akranes.is/static/files/8.Mannlif/Utilistaverk/akratorg.jpg"
+    }
+  ]
+}

@@ -17,7 +17,10 @@ function Map() {
       // Remove the hash
       const id = window.location.hash.substring(1);
       const foundMarker = markers.find((marker) => {
-        return marker.id === id;
+        if (marker && marker.id) {
+          return marker.id === id;
+        }
+        return false;
       });
       if (foundMarker) {
         setMarker(foundMarker);
@@ -43,14 +46,18 @@ function Map() {
             disableDefaultUI: true,
           }}
         >
-          {markers.map((marker: IMarker, index) => (
-            <Marker
-              key={index}
-              onClick={() => onClick(marker)}
-              position={marker.position}
-              icon={marker.img}
-            />
-          ))}
+          {markers.map((marker: IMarker | undefined, index) => {
+            if (marker) {
+              return (
+                <Marker
+                  key={index}
+                  onClick={() => onClick(marker)}
+                  position={marker.position}
+                  icon={marker.img}
+                />
+              );
+            }
+          })}
         </GoogleMap>
       </LoadScript>
       <Drawer
