@@ -1,3 +1,4 @@
+import { IMarker } from '../interfaces/interfaces';
 import rawJson from './rawJson.json';
 import gudlaug from '../images/gudlaug.jpg';
 import breidin from '../images/breidin.jpg';
@@ -6,8 +7,12 @@ import byggdasafn from '../images/byggdasafn.jpg';
 import akrafjall from '../images/akrafjall.jpg';
 import langisandur from '../images/langisandur.jpg';
 import akratorg from '../images/akratorg.jpg';
+import fotboltamenn from '../images/fotboltamenn.jpg';
+import bjarnalaug from '../images/bjarnalaug.jpg';
+import sundlaug from '../images/sundlaug.jpg';
+import strompur from '../images/strompur.jpg';
 
-function getImgById(id) {
+function getImgById(id: string) {
   switch (id) {
     case 'gudlaug':
       return gudlaug;
@@ -23,6 +28,14 @@ function getImgById(id) {
       return langisandur;
     case 'akratorg':
       return akratorg;
+    case 'fotboltamenn':
+      return fotboltamenn;
+    case 'bjarnarlaug':
+      return bjarnalaug;
+    case 'jadarsbakki':
+      return sundlaug;
+    case 'Sementsstrompur':
+      return strompur;
     default:
       console.log('id not found', id);
       return gudlaug;
@@ -38,13 +51,14 @@ const markers = rawJson.Sheet1.map((marker) => {
         title: marker.name,
         desc: marker.desc,
         cardImg: getImgById(marker.id),
+        more: '',
       },
       img: marker.img,
     };
     if (marker.more) {
       markerInfo.info.more = marker.more;
     }
-    return markerInfo;
+    return markerInfo as IMarker;
   }
 });
 

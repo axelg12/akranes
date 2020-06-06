@@ -62,13 +62,51 @@
     },
     {
       "id": "akratorg",
-      "name": "Sjómaðurinn",
+      "name": "Akranes Town Square",
       "desc": "Á Akratorgi er Sjómaðurinn eftir Martein Guðmundsson sem fæddist 1905 og lést árið 1952. Það er reist til minningar um drukknaða sjómenn. Á undirstöðunni er hending úr kvæðinu Sjómannasöngur eftir Steingrím Thorsteinsson;",
       "lat": "64.317034",
       "lng": "-22.083779",
       "img": "https://i.ibb.co/JQpkM0b/torgid.png",
       "Mynd": "https://www.flickr.com/photos/ingasig/3362193969/lightbox/",
       "Mynd nánar": "https://www.akranes.is/static/files/8.Mannlif/Utilistaverk/akratorg.jpg"
+    },
+    {
+      "id": "fotboltamenn",
+      "name": "The Footballers statute",
+      "desc": "At the roundabout, you can find the unique statue called Fótboltamenn (translated Footballers) by Sigurjón Ólafsson. Football represents a huge cultural and historic aspect of Akranes, as ÍA (the local football club) has been champions in the Icelandic division multiple time. The statue was bought and put up by Akranes in 2001, which represented the 50th year anniversary of the first time that ÍA became champions in the highest football division in Iceland.",
+      "lat": "64.319921",
+      "lng": "-22.068211",
+      "img": "https://i.ibb.co/WvVkXRs/fotboltamenn.png",
+      "Mynd": "https://lh3.googleusercontent.com/proxy/OmxWUD7deKDvAe-9IPne6QR1qguUMLSOxsUAzEBgu1aKYRwzv5gxtjBS60kau-cQNO1IsL1CELvtnSYceHyG6VI1ZrEtJdfnlASVENUA",
+      "Mynd nánar": "https://www.akranes.is/static/files/8.Mannlif/Utilistaverk/fotboltamenn.jpg"
+    },
+    {
+      "id": "Sementsstrompur",
+      "name": "Cement factory chimney",
+      "desc": "The Cement factory was established in 1958 and was for the longest time one of the largest factories in Akranes. One of the trademarks of Akranes was the chimney of the factory which rose 70 meters into the air. After a decrease in demand of cement the factory slowly closed down. In 2019 the chimney was taken down, but the top of the chimney was kept at the same place as a historic memory of this once iconic landmark.",
+      "lat": "64.318209",
+      "lng": "-22.075151",
+      "Mynd nánar": "https://skessuhorn.is/wp-content/uploads/2017/08/Fr%C3%A9ttask%C3%BDring-%C3%81-strompurinn-a%C3%B0-vera-e%C3%B0a-v%C3%ADkja_1.jpg"
+    },
+    {
+      "id": "jadarsbakki",
+      "name": "Akranes public pool",
+      "desc": "One of two public swimming pools in Akranes. It is open all year round and has a 25-meter outdoor pool, three hot tubs, a sauna, and a water slide. It is a perfect stop for the whole family. While you are here, check out Gudlaug the public hot tub which is within walking distance located close to the sea!",
+      "lat": "64.318412",
+      "lng": "-22.058295",
+      "img": "https://i.ibb.co/pj6WvJc/sundlaug.png",
+      "Mynd": "N/A",
+      "Mynd nánar": "https://www.akranes.is/static/news/lg/1559250122_126b1537.jpg"
+    },
+    {
+      "id": "bjarnarlaug",
+      "name": "Bjarnalaug public pool",
+      "desc": "Bjarnalaug is one of two public swimming pools in Akranes. It is a 12.5-meter indoor pool with a hot tub. It is only open for the public during the winter months on Saturdays between 10:00-13:00, but if you are in the vicinity it is definitely worth the stop!",
+      "lat": "64.317437",
+      "lng": "-22.086362",
+      "img": "https://i.ibb.co/pj6WvJc/sundlaug.png",
+      "Mynd": "N/A",
+      "Mynd nánar": "https://www.akranes.is/static/gallery/vokudagar-2016/lg/sh4a1202.jpg"
     }
   ]
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import Drawer from '@material-ui/core/Drawer';
-import { useGoogleMap } from '@react-google-maps/api';
 import { IMarker } from '../interfaces/interfaces';
 import DrawerContent from '../Drawer';
 import ListView from '../ListView';
