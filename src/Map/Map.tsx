@@ -35,6 +35,7 @@ function Map() {
     height: 'calc(100vh - 70px)',
     width: '100%',
   };
+  console.log('render map');
   return (
     <Fragment>
       <div className="Map">

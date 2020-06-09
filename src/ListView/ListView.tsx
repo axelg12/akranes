@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -8,17 +9,21 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import markers from '../Map/markers';
 import './ListView.css';
+import { IPosition } from '../interfaces/interfaces';
 
-function ListView({ googleMap }) {
-  const panToPos = (pos) => {
+function ListView({ googleMap }: any) {
+  const panToPos = (pos: IPosition) => {
     if (googleMap) {
       googleMap.panTo(pos);
     }
   };
 
+  const { t } = useTranslation();
+
   return (
     <div className="ListView">
       {markers.map((marker, index) => {
+        if (!marker) return null;
         return (
           <div key={index}>
             <Card className="ListView__drawer">
@@ -41,14 +46,14 @@ function ListView({ googleMap }) {
                     color="textSecondary"
                     component="p"
                   >
-                    {marker.info.desc}
+                    {t(`${marker.id}_desc`)}
                   </Typography>
                 </CardContent>
               </CardActionArea>
               <CardActions>
                 {marker.info.more && (
                   <Link target="_blank" href={marker.info.more}>
-                    Learn More
+                    {t('Hallo')}
                   </Link>
                 )}
               </CardActions>

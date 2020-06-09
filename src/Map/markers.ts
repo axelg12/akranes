@@ -11,6 +11,7 @@ import fotboltamenn from '../images/fotboltamenn.jpg';
 import bjarnalaug from '../images/bjarnalaug.jpg';
 import sundlaug from '../images/sundlaug.jpg';
 import strompur from '../images/strompur.jpg';
+import golf from '../images/golf.jpg';
 
 function getImgById(id: string) {
   switch (id) {
@@ -36,6 +37,8 @@ function getImgById(id: string) {
       return sundlaug;
     case 'Sementsstrompur':
       return strompur;
+    case 'golf':
+      return golf;
     default:
       console.log('id not found', id);
       return gudlaug;

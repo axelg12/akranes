@@ -1,6 +1,6 @@
 .ListView {
   float: right;
-  width: 50%;
+  width: 25%;
   height: calc(100vh - 70px);
   overflow-y: scroll;
 }

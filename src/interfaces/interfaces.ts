@@ -1,4 +1,4 @@
-interface IPosition {
+export interface IPosition {
   lat: number;
   lng: number;
 }

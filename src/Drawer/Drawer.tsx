@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import ClipBoard from 'clipboard';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,6 +12,8 @@ import { IMarker } from '../interfaces/interfaces';
 import './Drawer.css';
 
 export default function Drawer({ marker }: { marker: IMarker }) {
+  const { t } = useTranslation();
+
   new ClipBoard('.MuiButton-label');
   return (
     <Card className="Drawer">
@@ -25,14 +28,14 @@ export default function Drawer({ marker }: { marker: IMarker }) {
             {marker.info.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {marker.info.desc}
+            {t(`${marker.id}_desc`)}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         {marker.info.more && (
           <Link target="_blank" href={marker.info.more}>
-            Learn More
+            {t('learn_more')}
           </Link>
         )}
       </CardActions>
