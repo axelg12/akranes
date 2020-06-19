@@ -1,5 +1,11 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  Polyline,
+} from '@react-google-maps/api';
+import { paths, options } from './paths';
 import Drawer from '@material-ui/core/Drawer';
 import { IMarker } from '../interfaces/interfaces';
 import DrawerContent from '../Drawer';
@@ -35,7 +41,7 @@ function Map() {
     height: 'calc(100vh - 70px)',
     width: '100%',
   };
-  console.log('render map');
+  console.log('render map', paths, options);
   return (
     <Fragment>
       <div className="Map">
@@ -53,6 +59,7 @@ function Map() {
               disableDefaultUI: true,
             }}
           >
+            <Polyline path={paths} options={options} />
             {markers.map((marker: IMarker | undefined, index) => {
               if (marker) {
                 return (

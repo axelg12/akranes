@@ -19,8 +19,8 @@ function Header() {
         width="62"
       />
       <h1 className="Header__title">Akranes Interactive Map</h1>
-      <button onClick={() => changeLanguage('is')}>is</button>
-      <button onClick={() => changeLanguage('en')}>en</button>
+      {/* <button onClick={() => changeLanguage('is')}>is</button>
+      <button onClick={() => changeLanguage('en')}>en</button> */}
     </header>
   );
 }
