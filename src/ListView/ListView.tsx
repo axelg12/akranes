@@ -52,9 +52,7 @@ function ListView({ googleMap }: any) {
               </CardActionArea>
               <CardActions>
                 {marker.info.more && (
-                  <Link target="_blank" href={marker.info.more}>
-                    {t('Hallo')}
-                  </Link>
+                  <Link target="_blank" href={marker.info.more}></Link>
                 )}
               </CardActions>
             </Card>

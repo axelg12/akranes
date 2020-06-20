@@ -25,7 +25,7 @@ export default function Drawer({ marker }: { marker: IMarker }) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {marker.info.title}
+            {t(`${marker.id}_title`)}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {t(`${marker.id}_desc`)}

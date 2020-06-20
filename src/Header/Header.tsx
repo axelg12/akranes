@@ -4,9 +4,8 @@ import logo from './logo.svg';
 import './Header.css';
 
 function Header() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const changeLanguage = (lng: string) => {
-    console.log('abc', lng);
     i18n.changeLanguage(lng);
   };
   return (
@@ -18,9 +17,17 @@ function Header() {
         height="47"
         width="62"
       />
-      <h1 className="Header__title">Akranes Interactive Map</h1>
-      {/* <button onClick={() => changeLanguage('is')}>is</button>
-      <button onClick={() => changeLanguage('en')}>en</button> */}
+      <h1 className="Header__title">{t('title')}</h1>
+      <div className="Header__languages">
+        <div
+          className="Header__langage Header__langage--is"
+          onClick={() => changeLanguage('is')}
+        />
+        <div
+          className="Header__langage Header__langage--en"
+          onClick={() => changeLanguage('en')}
+        />
+      </div>
     </header>
   );
 }

@@ -12,3 +12,24 @@
   font-weight: 600;
   text-transform: uppercase;
 }
+.Header__langage {
+  height: 30px;
+  width: 50px;
+  background: url('./is.png');
+  background-size: contain;
+  margin-right: 20px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.Header__langage--is {
+  background-image: url('./is.png');
+}
+.Header__langage--en {
+  background-image: url('./en.jpg');
+}
+.Header__languages {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
