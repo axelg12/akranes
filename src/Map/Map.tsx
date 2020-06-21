@@ -41,7 +41,6 @@ function Map() {
     height: 'calc(100vh - 70px)',
     width: '100%',
   };
-  console.log('render map', paths, options);
   return (
     <Fragment>
       <div className="Map">
@@ -71,6 +70,7 @@ function Map() {
                   />
                 );
               }
+              return null;
             })}
           </GoogleMap>
         </LoadScript>

@@ -63,6 +63,17 @@ const markers = rawJson.Sheet1.map((marker) => {
     }
     return markerInfo as IMarker;
   }
+  return {
+    id: '',
+    position: { lat: 0, lng: 0 },
+    info: {
+      title: '',
+      desc: '',
+      cardImg: '',
+      more: '',
+    },
+    img: '',
+  };
 });
 
 export default markers;
