@@ -5,7 +5,7 @@ import {
   Marker,
   Polyline,
 } from '@react-google-maps/api';
-import { paths, options } from './paths';
+import { options, getMarkersByPath } from './paths';
 import Drawer from '@material-ui/core/Drawer';
 import { IMarker } from '../interfaces/interfaces';
 import DrawerContent from '../Drawer';
@@ -14,7 +14,7 @@ import markers from './markers';
 import styles from './styles';
 import './Map.css';
 
-function Map() {
+function Map({ pathId = 'All' }) {
   const onClick = (marker: IMarker) => {
     setMarker(marker);
   };
@@ -41,6 +41,7 @@ function Map() {
     height: 'calc(100vh - 70px)',
     width: '100%',
   };
+  const markerAndPathInfo = getMarkersByPath(pathId);
   return (
     <Fragment>
       <div className="Map">
@@ -58,9 +59,19 @@ function Map() {
               disableDefaultUI: true,
             }}
           >
-            <Polyline path={paths} options={options} />
+            {markerAndPathInfo.path.polylines.map((polyline) => {
+              return (
+                <Polyline
+                  path={polyline}
+                  options={{
+                    ...options,
+                    strokeColor: markerAndPathInfo.path.color,
+                  }}
+                />
+              );
+            })}
             {markers.map((marker: IMarker | undefined, index) => {
-              if (marker) {
+              if (marker && markerAndPathInfo.markers.includes(marker.id)) {
                 return (
                   <Marker
                     key={index}
