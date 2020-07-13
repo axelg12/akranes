@@ -86,6 +86,7 @@ function Map({
               styles: styles as google.maps.MapTypeStyle[],
               streetViewControl: false,
               disableDefaultUI: true,
+              gestureHandling: 'greedy',
             }}
           >
             {markerAndPathInfo.path.polylines.map((polyline, i) => {

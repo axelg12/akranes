@@ -54,19 +54,6 @@ const list = (changePathId: Function, t: Function) => (
   </div>
 );
 
-// function getPathName(pathId: string) {
-//   switch (pathId) {
-//     case 'running':
-//       return 'hlaupaleið';
-//     case 'art':
-//       return 'listaganga';
-//     case 'walking':
-//       return 'strandganga';
-//     default:
-//       break;
-//   }
-// }
-
 function App() {
   const [isOpen, changeOnOpen] = useState(false);
   const [infoClick, onInfoClick] = useState(false);
