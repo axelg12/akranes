@@ -11,6 +11,40 @@ const options = {
   radius: 30000,
   zIndex: 1,
 };
+
+function getPathInfoById(pathID: string) {
+  console.log('abc');
+  let title, desc, cardImg;
+  switch (pathID) {
+    case 'art':
+      title = 'listaganga';
+      desc = 'listaganga';
+      cardImg = 'listaganga';
+      break;
+
+    default:
+      title = 'listaganga';
+      desc = 'listaganga';
+      cardImg = 'listaganga';
+      break;
+  }
+  return {
+    title: title,
+    desc: desc,
+    cardImg: cardImg,
+    more: '',
+  };
+}
+
+export function getPathInfo(pathId: string) {
+  return {
+    id: pathId,
+    position: { lat: 0, lng: 0 },
+    info: getPathInfoById(pathId),
+    img: '',
+  };
+}
+
 const runningPath = [
   { lat: 64.325903, lng: -21.985586 },
   { lat: 64.326105, lng: -21.985184 },

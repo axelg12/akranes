@@ -1,8 +1,18 @@
 .App__icon {
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   right: 10px;
 }
 .App__icon button {
   font-size: 40px;
+}
+.App__pathInfo {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  color: #005a9c;
+  font-weight: bold;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
 }

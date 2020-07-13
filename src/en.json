@@ -22,5 +22,11 @@
   "fotboltamenn_title": "The fotballers",
   "Sementsstrompur_title": "Cement Factory Chimney",
   "jadarsbakki_title": "Akranes public pool",
-  "bjarnarlaug_title": "Bjarnalaug public pool"
+  "bjarnarlaug_title": "Bjarnalaug public pool",
+  "art_title": "Nafn á göngu",
+  "art_desc": "Lysing",
+  "running_title": "Nafn á göngu",
+  "running_desc": "Lysing",
+  "walking_title": "Nafn á göngu",
+  "walking_desc": "Lysing"
 }
