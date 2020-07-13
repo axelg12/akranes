@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react';
-import Header from './Header';
+import { useTranslation } from 'react-i18next';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
@@ -7,10 +7,12 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import BrushIcon from '@material-ui/icons/Brush';
 import ListItem from '@material-ui/core/ListItem';
+import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import Header from './Header';
 import Map from './Map';
 import './App.css';
 
@@ -21,67 +23,65 @@ const Loader = () => (
   </div>
 );
 
-const list = (changePathId: Function) => (
+const list = (changePathId: Function, t: Function) => (
   <div>
     <List>
       <ListItem button onClick={() => changePathId('all')}>
         <ListItemIcon>
-          <BrushIcon />
+          <PhotoCameraIcon />
         </ListItemIcon>
-        <ListItemText primary="Engin sérstök leið" />
+        <ListItemText primary={t('all_title')} />
       </ListItem>
       <ListItem button onClick={() => changePathId('running')}>
         <ListItemIcon>
           <DirectionsRunIcon />
         </ListItemIcon>
-        <ListItemText primary="Hlaupa leið" />
+        <ListItemText primary={t('running_title')} />
       </ListItem>
       <ListItem button onClick={() => changePathId('art')}>
         <ListItemIcon>
           <BrushIcon />
         </ListItemIcon>
-        <ListItemText primary="Listaganga" />
+        <ListItemText primary={t('art_title')} />
       </ListItem>
       <ListItem button onClick={() => changePathId('walking')}>
         <ListItemIcon>
           <DirectionsWalkIcon />
         </ListItemIcon>
-        <ListItemText primary="Strandganga" />
+        <ListItemText primary={t('walking_title')} />
       </ListItem>
     </List>
   </div>
 );
 
-function getPathName(pathId: string) {
-  switch (pathId) {
-    case 'running':
-      return 'hlaupaleið';
-    case 'art':
-      return 'listaganga';
-    case 'walking':
-      return 'strandganga';
-    default:
-      break;
-  }
-}
+// function getPathName(pathId: string) {
+//   switch (pathId) {
+//     case 'running':
+//       return 'hlaupaleið';
+//     case 'art':
+//       return 'listaganga';
+//     case 'walking':
+//       return 'strandganga';
+//     default:
+//       break;
+//   }
+// }
 
 function App() {
   const [isOpen, changeOnOpen] = useState(false);
   const [infoClick, onInfoClick] = useState(false);
   const [pathId, changePathId] = useState('all');
-  console.log('pathId', pathId);
+  const { t } = useTranslation();
   return (
     <Suspense fallback={<Loader />}>
       <div className="App">
         <Header />
         <Map pathId={pathId} infoClick={infoClick} />
-        {pathId !== 'all' && (
-          <div className="App__pathInfo">
-            <IconButton color="primary" onClick={() => onInfoClick(!infoClick)}>
-              <InfoIcon /> {getPathName(pathId)}
-            </IconButton>
-          </div>
-        )}
+        <div className="App__pathInfo">
+          <IconButton color="primary" onClick={() => onInfoClick(!infoClick)}>
+            <InfoIcon fontSize="inherit" />
+          </IconButton>
+        </div>
         <div className="App__icon" onClick={() => changeOnOpen(!isOpen)}>
           <IconButton color="primary">
             <AddCircleIcon fontSize="inherit" />
@@ -91,7 +91,7 @@ function App() {
             open={isOpen}
             onClose={() => changeOnOpen(false)}
           >
-            {list(changePathId)}
+            {list(changePathId, t)}
           </Drawer>
         </div>
       </div>

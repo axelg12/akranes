@@ -14,7 +14,7 @@
 }
 .Header__langage {
   height: 30px;
-  width: 50px;
+  width: 35px;
   background: url('./is.png');
   background-size: contain;
   margin-right: 20px;
@@ -32,4 +32,10 @@
   align-items: center;
   justify-content: flex-end;
   flex: 1;
+}
+
+@media only screen and (min-width: 768px) {
+  .Header__langage {
+    width: 50px;
+  }
 }

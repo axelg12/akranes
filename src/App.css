@@ -8,11 +8,21 @@
 }
 .App__pathInfo {
   position: absolute;
-  bottom: 20px;
-  left: 0;
+  bottom: 60px;
+  right: 10px;
   color: #005a9c;
   font-weight: bold;
   display: flex;
   font-size: 16px;
   align-items: center;
+}
+.App__pathInfo button {
+  font-size: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  .App__pathInfo,
+  .App__icon {
+    right: calc(25% + 10px);
+  }
 }

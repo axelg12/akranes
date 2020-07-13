@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment, useRef } from 'react';
 import {
   GoogleMap,
   LoadScript,
@@ -24,6 +24,11 @@ function Map({
   const onClick = (marker: IMarker) => {
     setMarker(marker);
   };
+  const mapRef: any = useRef(null);
+  const [position, setPosition] = useState({
+    lat: 64.3152673,
+    lng: -22.0618914,
+  });
   const [selectedMarker, setMarker] = useState<null | IMarker>(null);
   const [googleMap, setMap] = useState<any>(null);
   useEffect(() => {
@@ -43,13 +48,25 @@ function Map({
   }, []);
   useEffect(() => {
     setMarker(getPathInfo(pathId));
-  }, [infoClick]);
-  const center = { lat: 64.3152673, lng: -22.0618914 };
+  }, [infoClick, pathId]);
   const zoom = 14;
   const containerStyle = {
     height: 'calc(100vh - 70px)',
     width: '100%',
   };
+
+  function handleLoad(map: any) {
+    mapRef.current = map;
+  }
+
+  function handleCenter() {
+    if (mapRef && mapRef.current) {
+      const newCenter = mapRef.current!.getCenter();
+      if (newCenter) {
+        setPosition(newCenter.toJSON());
+      }
+    }
+  }
 
   const markerAndPathInfo = getMarkersByPath(pathId);
   return (
@@ -58,10 +75,12 @@ function Map({
         <LoadScript googleMapsApiKey="AIzaSyBQfmIUDAO68X06yf2IX6M_sjQV5J-VFUE">
           <GoogleMap
             onLoad={(map: any) => {
+              handleLoad(map);
               setMap(map);
             }}
+            onDragEnd={handleCenter}
             mapContainerStyle={containerStyle}
-            center={center}
+            center={position}
             zoom={zoom}
             options={{
               styles: styles as google.maps.MapTypeStyle[],
@@ -69,9 +88,10 @@ function Map({
               disableDefaultUI: true,
             }}
           >
-            {markerAndPathInfo.path.polylines.map((polyline) => {
+            {markerAndPathInfo.path.polylines.map((polyline, i) => {
               return (
                 <Polyline
+                  key={i}
                   path={polyline}
                   options={{
                     ...options,
@@ -106,7 +126,7 @@ function Map({
           {selectedMarker && <DrawerContent marker={selectedMarker} />}
         </Drawer>
       </div>
-      <ListView googleMap={googleMap} />
+      <ListView googleMap={googleMap} pathId={pathId} />
     </Fragment>
   );
 }

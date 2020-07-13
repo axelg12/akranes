@@ -1,3 +1,5 @@
+import placeholder from '../images/placeholder.jpg';
+
 const options = {
   strokeColor: '#BAA390',
   strokeOpacity: 1,
@@ -13,19 +15,18 @@ const options = {
 };
 
 function getPathInfoById(pathID: string) {
-  console.log('abc');
   let title, desc, cardImg;
   switch (pathID) {
     case 'art':
       title = 'listaganga';
       desc = 'listaganga';
-      cardImg = 'listaganga';
+      cardImg = placeholder;
       break;
 
     default:
       title = 'listaganga';
       desc = 'listaganga';
-      cardImg = 'listaganga';
+      cardImg = placeholder;
       break;
   }
   return {
@@ -189,8 +190,6 @@ const allMarkers = [
   'langisandur',
   'akratorg',
   'fotboltamenn',
-  'bjarnarlaug',
-  'jadarsbakki',
   'Sementsstrompur',
   'golf',
 ];
@@ -202,14 +201,7 @@ const walkingMarkers = [
   'gudlaug',
 ];
 
-const artMarkers = [
-  'jadarsbakki',
-  'gudlaug',
-  'gardar',
-  'akrafjall',
-  'langisandur',
-  'golf',
-];
+const artMarkers = ['gudlaug', 'gardar', 'akrafjall', 'langisandur', 'golf'];
 
 const runningMarkers = [
   'jadarsbakki',

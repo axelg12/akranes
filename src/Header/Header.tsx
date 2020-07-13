@@ -6,10 +6,14 @@ import MenuItem from '@material-ui/core/MenuItem';
 import logo from './logo.svg';
 import './Header.css';
 
+const SUPPORTED_LANGS = ['en', 'is'];
+
 function Header() {
   const { i18n, t } = useTranslation();
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+    if (lng && SUPPORTED_LANGS.includes(lng)) {
+      i18n.changeLanguage(lng);
+    }
   };
   const language = i18n.language;
   const [anchorEl, setAnchorEl] = React.useState(null);
