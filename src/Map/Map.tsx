@@ -29,6 +29,7 @@ function Map({
     setMarker(marker);
   };
   const mapRef: any = useRef(null);
+  const isInitialRender = useRef(true);
   const [position, setPosition] = useState({
     lat: 64.3152673,
     lng: -22.0618914,
@@ -54,6 +55,10 @@ function Map({
     const pathInfo = getPathInfo(pathId);
     setPosition(pathInfo.position);
     setMarker(getPathInfo(pathId));
+    if (isInitialRender.current) {
+      isInitialRender.current = false;
+      return;
+    }
   }, [infoClick, pathId]);
   const zoom = 14;
   const containerStyle = {

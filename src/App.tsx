@@ -13,6 +13,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Header from './Header';
 import Map from './Map';
+import IntroScreen from './IntroScreen';
 import './App.css';
 
 // loading component for suspense fallback
@@ -32,9 +33,9 @@ interface GeoLocation {
 function App() {
   const [isOpen, changeOnOpen] = useState(false);
   const [infoClick, onInfoClick] = useState(false);
-  console.log('APp');
   const [userPosition, setUserPosition] = useState({ lat: 0, lng: 0 });
   const [subSelection, setSubSelection] = useState<string | undefined>();
+  const [introScreenStep, onChangeStep] = useState(0);
   const [pathId, changePathId] = useState('all');
   const { t } = useTranslation();
 
@@ -132,6 +133,12 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <div className="App">
+        {introScreenStep <= 3 && (
+          <IntroScreen
+            step={introScreenStep}
+            onChangeStep={() => onChangeStep(introScreenStep + 1)}
+          />
+        )}
         <Header />
         <Map
           userPosition={userPosition}
