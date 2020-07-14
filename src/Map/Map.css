@@ -14,4 +14,8 @@
   .Map__drawer {
     display: none;
   }
+  .MuiDrawer-paper.MuiDrawer-paperAnchorBottom {
+    right: 25%;
+    left: auto;
+  }
 }
