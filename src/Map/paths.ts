@@ -15,35 +15,42 @@ const options = {
 };
 
 function getPathInfoById(pathID: string) {
-  let title, desc, cardImg;
+  let title, desc, cardImg, position;
   switch (pathID) {
-    case 'art':
+    case 'walking':
       title = 'listaganga';
       desc = 'listaganga';
       cardImg = placeholder;
+      position = { lat: 64.331978, lng: -22.060369 };
       break;
-
+    case 'running':
+      title = 'Running';
+      position = { lat: 64.30847, lng: -22.028308 };
+      desc = 'listaganga';
+      cardImg = placeholder;
+      break;
     default:
       title = 'listaganga';
       desc = 'listaganga';
       cardImg = placeholder;
+      position = { lat: 64.3152673, lng: -22.0618914 };
       break;
   }
   return {
-    title: title,
-    desc: desc,
-    cardImg: cardImg,
-    more: '',
+    id: pathID,
+    position: position,
+    info: {
+      title: title,
+      desc: desc,
+      cardImg: cardImg,
+      more: '',
+    },
+    img: '',
   };
 }
 
 export function getPathInfo(pathId: string) {
-  return {
-    id: pathId,
-    position: { lat: 0, lng: 0 },
-    info: getPathInfoById(pathId),
-    img: '',
-  };
+  return getPathInfoById(pathId);
 }
 
 const runningPath = [

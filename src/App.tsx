@@ -65,12 +65,12 @@ function App() {
         <Header />
         <Map pathId={pathId} infoClick={infoClick} />
         <div className="App__pathInfo">
-          <IconButton color="primary" onClick={() => onInfoClick(!infoClick)}>
+          <IconButton color="inherit" onClick={() => onInfoClick(!infoClick)}>
             <InfoIcon fontSize="inherit" />
           </IconButton>
         </div>
         <div className="App__icon" onClick={() => changeOnOpen(!isOpen)}>
-          <IconButton color="primary">
+          <IconButton color="inherit">
             <AddCircleIcon fontSize="inherit" />
           </IconButton>
           <Drawer

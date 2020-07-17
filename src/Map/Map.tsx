@@ -47,6 +47,8 @@ function Map({
     }
   }, []);
   useEffect(() => {
+    const pathInfo = getPathInfo(pathId);
+    setPosition(pathInfo.position);
     setMarker(getPathInfo(pathId));
   }, [infoClick, pathId]);
   const zoom = 14;

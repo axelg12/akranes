@@ -2,22 +2,21 @@
   position: absolute;
   bottom: 20px;
   right: 10px;
+  color: #005a9c;
 }
-.App__icon button {
-  font-size: 40px;
+.App__icon button,
+.App__pathInfo button {
+  font-size: 50px;
 }
 .App__pathInfo {
   position: absolute;
-  bottom: 60px;
-  right: 10px;
+  bottom: 20px;
+  left: 10px;
   color: #005a9c;
   font-weight: bold;
   display: flex;
   font-size: 16px;
   align-items: center;
-}
-.App__pathInfo button {
-  font-size: 40px;
 }
 
 @media only screen and (min-width: 768px) {
