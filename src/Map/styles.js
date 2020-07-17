@@ -11,7 +11,7 @@ export default [
     elementType: 'labels.icon',
     stylers: [
       {
-        visibility: 'off',
+        visibility: 'on',
       },
     ],
   },
@@ -32,28 +32,11 @@ export default [
     ],
   },
   {
-    featureType: 'administrative',
-    elementType: 'geometry',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
     featureType: 'administrative.land_parcel',
     elementType: 'labels.text.fill',
     stylers: [
       {
         color: '#bdbdbd',
-      },
-    ],
-  },
-  {
-    featureType: 'poi',
-    stylers: [
-      {
-        visibility: 'off',
       },
     ],
   },
@@ -103,15 +86,6 @@ export default [
     ],
   },
   {
-    featureType: 'road',
-    elementType: 'labels.icon',
-    stylers: [
-      {
-        visibility: 'off',
-      },
-    ],
-  },
-  {
     featureType: 'road.arterial',
     elementType: 'labels.text.fill',
     stylers: [
@@ -144,14 +118,6 @@ export default [
     stylers: [
       {
         color: '#9e9e9e',
-      },
-    ],
-  },
-  {
-    featureType: 'transit',
-    stylers: [
-      {
-        visibility: 'off',
       },
     ],
   },
@@ -192,3 +158,4 @@ export default [
     ],
   },
 ];
+// export default [];

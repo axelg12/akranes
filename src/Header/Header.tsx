@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import logo from './logo.svg';
 import './Header.css';
 
@@ -54,13 +55,15 @@ function Header() {
             />
           </MenuItem>
         </Menu>
-        <div
-          className={classNames('Header__langage', {
-            'Header__langage--is': language === 'is',
-            'Header__langage--en': language === 'en',
-          })}
-          onClick={handleClick}
-        />
+        <div className="Header__changeLanguage" onClick={handleClick}>
+          <div
+            className={classNames('Header__langage', {
+              'Header__langage--is': language === 'is',
+              'Header__langage--en': language === 'en',
+            })}
+          />
+          <ArrowDropDownIcon color="inherit" />
+        </div>
       </div>
     </header>
   );

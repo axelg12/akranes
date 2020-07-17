@@ -10,8 +10,6 @@ import ListItem from '@material-ui/core/ListItem';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
-import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import Header from './Header';
 import Map from './Map';
 import './App.css';
@@ -23,42 +21,55 @@ const Loader = () => (
   </div>
 );
 
-const list = (changePathId: Function, t: Function) => (
-  <div>
-    <List>
-      <ListItem button onClick={() => changePathId('all')}>
-        <ListItemIcon>
-          <PhotoCameraIcon />
-        </ListItemIcon>
-        <ListItemText primary={t('all_title')} />
-      </ListItem>
-      <ListItem button onClick={() => changePathId('running')}>
-        <ListItemIcon>
-          <DirectionsRunIcon />
-        </ListItemIcon>
-        <ListItemText primary={t('running_title')} />
-      </ListItem>
-      <ListItem button onClick={() => changePathId('art')}>
-        <ListItemIcon>
-          <BrushIcon />
-        </ListItemIcon>
-        <ListItemText primary={t('art_title')} />
-      </ListItem>
-      <ListItem button onClick={() => changePathId('walking')}>
-        <ListItemIcon>
-          <DirectionsWalkIcon />
-        </ListItemIcon>
-        <ListItemText primary={t('walking_title')} />
-      </ListItem>
-    </List>
-  </div>
-);
-
 function App() {
   const [isOpen, changeOnOpen] = useState(false);
   const [infoClick, onInfoClick] = useState(false);
+  const [subSelection, setSubSelection] = useState<string | undefined>();
   const [pathId, changePathId] = useState('all');
   const { t } = useTranslation();
+
+  const list = () => {
+    if (subSelection === 'art') {
+      return (
+        <div>
+          <List>
+            <ListItem button onClick={() => setSelectedPath('art_one')}>
+              <ListItemIcon>
+                <BrushIcon />
+              </ListItemIcon>
+              <ListItemText primary="Listaganga 1" />
+            </ListItem>
+          </List>
+        </div>
+      );
+    }
+    return (
+      <div>
+        <List>
+          <ListItem button onClick={() => setSelectedPath('all')}>
+            <ListItemIcon>
+              <PhotoCameraIcon />
+            </ListItemIcon>
+            <ListItemText primary={t('all_title')} />
+          </ListItem>
+          <ListItem button onClick={() => setSubSelection('art')}>
+            <ListItemIcon>
+              <BrushIcon />
+            </ListItemIcon>
+            <ListItemText primary={t('art_title')} />
+          </ListItem>
+        </List>
+      </div>
+    );
+  };
+
+  const setSelectedPath = (selectedPathId: string) => {
+    changePathId(selectedPathId);
+    changeOnOpen(false);
+    setTimeout(() => {
+      setSubSelection(undefined);
+    }, 2500);
+  };
   return (
     <Suspense fallback={<Loader />}>
       <div className="App">
@@ -69,7 +80,14 @@ function App() {
             <InfoIcon fontSize="inherit" />
           </IconButton>
         </div>
-        <div className="App__icon" onClick={() => changeOnOpen(!isOpen)}>
+        <div
+          className="App__icon"
+          onClick={() => {
+            if (!isOpen) {
+              changeOnOpen(true);
+            }
+          }}
+        >
           <IconButton color="inherit">
             <AddCircleIcon fontSize="inherit" />
           </IconButton>
@@ -78,7 +96,7 @@ function App() {
             open={isOpen}
             onClose={() => changeOnOpen(false)}
           >
-            {list(changePathId, t)}
+            {list()}
           </Drawer>
         </div>
       </div>

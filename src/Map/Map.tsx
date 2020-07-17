@@ -80,6 +80,10 @@ function Map({
               handleLoad(map);
               setMap(map);
             }}
+            onClick={(e) => {
+              const latLng = e.latLng;
+              console.log('lat:' + latLng.lat() + ', lng:' + latLng.lng());
+            }}
             onDragEnd={handleCenter}
             mapContainerStyle={containerStyle}
             center={position}
