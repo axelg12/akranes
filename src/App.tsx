@@ -7,6 +7,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import BrushIcon from '@material-ui/icons/Brush';
 import ListItem from '@material-ui/core/ListItem';
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -40,6 +41,14 @@ function App() {
               <ListItemText primary="Listaganga 1" />
             </ListItem>
           </List>
+          <List>
+            <ListItem button onClick={() => setSelectedPath('art_one')}>
+              <ListItemIcon>
+                <BrushIcon />
+              </ListItemIcon>
+              <ListItemText primary="Listaganga 2" />
+            </ListItem>
+          </List>
         </div>
       );
     }
@@ -57,6 +66,12 @@ function App() {
               <BrushIcon />
             </ListItemIcon>
             <ListItemText primary={t('art_title')} />
+          </ListItem>
+          <ListItem button onClick={() => changePathId('running')}>
+            <ListItemIcon>
+              <DirectionsRunIcon />
+            </ListItemIcon>
+            <ListItemText primary={t('running_title')} />
           </ListItem>
         </List>
       </div>
