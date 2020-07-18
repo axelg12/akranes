@@ -2,6 +2,7 @@
   height: calc(100vh - 70px);
   width: 100%;
 }
+
 .Map__drawer {
   display: block;
 }
@@ -11,11 +12,14 @@
     width: 75%;
     display: inline-block;
   }
+
   .Map__drawer {
     display: none;
   }
+
   .MuiDrawer-paper.MuiDrawer-paperAnchorBottom {
     right: 25%;
     left: auto;
+    width: 240px;
   }
 }

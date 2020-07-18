@@ -3,7 +3,7 @@ import {
   GoogleMap,
   LoadScript,
   Marker,
-  Polyline,
+  Polyline
 } from '@react-google-maps/api';
 import { options, getMarkersByPath, getPathInfo } from './paths';
 import Drawer from '@material-ui/core/Drawer';
@@ -14,9 +14,14 @@ import markers from './markers';
 import styles from './styles';
 import './Map.css';
 
+interface polyline {
+  lat: number;
+  lng: number;
+}
+
 function Map({
   pathId = 'All',
-  infoClick,
+  infoClick
 }: {
   pathId: string;
   infoClick: boolean;
@@ -27,7 +32,7 @@ function Map({
   const mapRef: any = useRef(null);
   const [position, setPosition] = useState({
     lat: 64.3152673,
-    lng: -22.0618914,
+    lng: -22.0618914
   });
   const [selectedMarker, setMarker] = useState<null | IMarker>(null);
   const [googleMap, setMap] = useState<any>(null);
@@ -54,7 +59,7 @@ function Map({
   const zoom = 14;
   const containerStyle = {
     height: 'calc(100vh - 70px)',
-    width: '100%',
+    width: '100%'
   };
 
   function handleLoad(map: any) {
@@ -92,17 +97,17 @@ function Map({
               styles: styles as google.maps.MapTypeStyle[],
               streetViewControl: false,
               disableDefaultUI: true,
-              gestureHandling: 'greedy',
+              gestureHandling: 'greedy'
             }}
           >
-            {markerAndPathInfo.path.polylines.map((polyline, i) => {
+            {markerAndPathInfo.path.polylines.map((polyline: polyline[], i) => {
               return (
                 <Polyline
                   key={i}
                   path={polyline}
                   options={{
                     ...options,
-                    strokeColor: markerAndPathInfo.path.color,
+                    strokeColor: markerAndPathInfo.path.color
                   }}
                 />
               );

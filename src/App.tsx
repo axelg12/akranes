@@ -42,11 +42,27 @@ function App() {
             </ListItem>
           </List>
           <List>
-            <ListItem button onClick={() => setSelectedPath('art_one')}>
+            <ListItem button onClick={() => setSelectedPath('art_two')}>
               <ListItemIcon>
                 <BrushIcon />
               </ListItemIcon>
               <ListItemText primary="Listaganga 2" />
+            </ListItem>
+          </List>
+          <List>
+            <ListItem button onClick={() => setSelectedPath('art_three')}>
+              <ListItemIcon>
+                <BrushIcon />
+              </ListItemIcon>
+              <ListItemText primary="Listaganga 3" />
+            </ListItem>
+          </List>
+          <List>
+            <ListItem button onClick={() => setSelectedPath('art_four')}>
+              <ListItemIcon>
+                <BrushIcon />
+              </ListItemIcon>
+              <ListItemText primary="Listaganga 4" />
             </ListItem>
           </List>
         </div>
@@ -83,7 +99,7 @@ function App() {
     changeOnOpen(false);
     setTimeout(() => {
       setSubSelection(undefined);
-    }, 2500);
+    }, 500);
   };
   return (
     <Suspense fallback={<Loader />}>
@@ -109,7 +125,10 @@ function App() {
           <Drawer
             anchor="bottom"
             open={isOpen}
-            onClose={() => changeOnOpen(false)}
+            onClose={() => {
+              changeOnOpen(false);
+              setSubSelection(undefined);
+            }}
           >
             {list()}
           </Drawer>
