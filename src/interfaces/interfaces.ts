@@ -16,4 +16,5 @@ export interface IMarker {
   position: IPosition;
   info: IInfo;
   img: string;
+  paths: string[];
 }

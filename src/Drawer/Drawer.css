@@ -1,5 +1,6 @@
 .Drawer {
   width: 250px;
+  overflow: scroll !important;
 }
 .Drawer__image {
   height: 140px;

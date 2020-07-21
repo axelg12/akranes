@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -18,6 +18,13 @@ function ListView({ googleMap, pathId }: { googleMap: any; pathId: string }) {
       googleMap.panTo(pos);
     }
   };
+
+  const myRef: any = useRef(null);
+
+  useEffect(() => {
+    if (myRef === null || myRef.current == null) return;
+    myRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathId]);
 
   const renderListCard = (marker: any, index?: number | string) => {
     return (
@@ -55,10 +62,9 @@ function ListView({ googleMap, pathId }: { googleMap: any; pathId: string }) {
   const markerIds = getMarkersByPath(pathId);
   const { t } = useTranslation();
   return (
-    <div className="ListView">
+    <div className="ListView" ref={myRef}>
       {renderListCard(getPathInfo(pathId), 'pathMarker')}
       {markers.map((marker, index) => {
-        console.log('markerid', marker.id);
         if (!marker || !markerIds.markers.includes(marker.id)) return null;
         return renderListCard(marker, index);
       })}

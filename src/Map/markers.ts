@@ -8,36 +8,56 @@ import akrafjall from '../images/akrafjall.jpg';
 import langisandur from '../images/langisandur.jpg';
 import akratorg from '../images/akratorg.jpg';
 import fotboltamenn from '../images/fotboltamenn.jpg';
-import bjarnalaug from '../images/bjarnalaug.jpg';
-import sundlaug from '../images/sundlaug.jpg';
 import strompur from '../images/strompur.jpg';
 import golf from '../images/golf.jpg';
 
+export const MARKERS_CONSTANTS = {
+  GUDLAUG: 'gudlaug',
+  BREIDIN: 'breidin',
+  ELINARSAETI: 'elinarsaeti',
+  GARDAR: 'gardar',
+  AKRAFJALL: 'akrafjall',
+  SEMENTSSTROMPUR: 'Sementsstrompur',
+  LANGISANDUR: 'langisandur',
+  AKRATORG: 'akratorg',
+  FOTBOLTAMENN: 'fotboltamenn',
+  GOLF: 'golf',
+};
+
+const {
+  GUDLAUG,
+  BREIDIN,
+  ELINARSAETI,
+  GARDAR,
+  AKRAFJALL,
+  SEMENTSSTROMPUR,
+  LANGISANDUR,
+  AKRATORG,
+  FOTBOLTAMENN,
+  GOLF,
+} = MARKERS_CONSTANTS;
+
 function getImgById(id: string) {
   switch (id) {
-    case 'gudlaug':
+    case GUDLAUG:
       return gudlaug;
-    case 'breidin':
+    case BREIDIN:
       return breidin;
-    case 'elinarsaeti':
+    case ELINARSAETI:
       return elinarsaeti;
-    case 'gardar':
+    case GARDAR:
       return byggdasafn;
-    case 'akrafjall':
+    case AKRAFJALL:
       return akrafjall;
-    case 'langisandur':
+    case LANGISANDUR:
       return langisandur;
-    case 'akratorg':
+    case AKRATORG:
       return akratorg;
-    case 'fotboltamenn':
+    case FOTBOLTAMENN:
       return fotboltamenn;
-    case 'bjarnarlaug':
-      return bjarnalaug;
-    case 'jadarsbakki':
-      return sundlaug;
-    case 'Sementsstrompur':
+    case SEMENTSSTROMPUR:
       return strompur;
-    case 'golf':
+    case GOLF:
       return golf;
     default:
       console.log('id not found', id);
@@ -45,7 +65,7 @@ function getImgById(id: string) {
   }
 }
 
-const markers = rawJson.Sheet1.map((marker) => {
+const markers = rawJson.map((marker) => {
   if (marker.lat) {
     const markerInfo = {
       id: marker.id,
@@ -57,6 +77,7 @@ const markers = rawJson.Sheet1.map((marker) => {
         more: '',
       },
       img: marker.img,
+      paths: marker.paths.split(','),
     };
     if (marker.more) {
       markerInfo.info.more = marker.more;
@@ -73,6 +94,7 @@ const markers = rawJson.Sheet1.map((marker) => {
       more: '',
     },
     img: '',
+    paths: [],
   };
 });
 

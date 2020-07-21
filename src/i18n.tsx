@@ -1,8 +1,10 @@
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import translationEN from './en.json';
-import translationIS from './is.json';
+import translationEN from './translations/en.json';
+import translationIS from './translations/is.json';
+import artWalkOneIS from './translations/artwalkone_is.json';
+import artWalkTwoIS from './translations/artwalktwo_is.json';
 
 // the translations
 import { initReactI18next } from 'react-i18next';
@@ -12,7 +14,7 @@ const resources = {
     translation: translationEN,
   },
   is: {
-    translation: translationIS,
+    translation: { ...translationIS, ...artWalkOneIS, ...artWalkTwoIS },
   },
 };
 
