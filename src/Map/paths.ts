@@ -48,8 +48,6 @@ export function getPathInfo(pathId: string) {
   return getPathInfoById(pathId);
 }
 
-console.log(markers);
-
 const allMarkers = markers
   .filter((marker) => marker.paths.filter((path) => path).length === 0)
   .map((marker) => marker.id);
