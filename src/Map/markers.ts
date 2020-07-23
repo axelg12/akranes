@@ -1,3 +1,4 @@
+import { getCircleImage } from './imageUtils';
 import { IMarker } from '../interfaces/interfaces';
 import rawJson from './rawJson.json';
 import gudlaug from '../images/gudlaug.jpg';
@@ -76,7 +77,7 @@ const markers = rawJson.map((marker) => {
         cardImg: getImgById(marker.id),
         more: '',
       },
-      img: marker.img,
+      img: getCircleImage(marker.id),
       paths: marker.paths.split(','),
     };
     if (marker.more) {
