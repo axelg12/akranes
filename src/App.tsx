@@ -1,4 +1,5 @@
 import React, { Suspense, useState, useEffect } from 'react';
+import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import IconButton from '@material-ui/core/IconButton';
@@ -15,6 +16,8 @@ import Header from './Header';
 import Map from './Map';
 import IntroScreen from './IntroScreen';
 import './App.css';
+
+const MAX_STEPS = 3;
 
 // loading component for suspense fallback
 const Loader = () => (
@@ -133,7 +136,7 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <div className="App">
-        {introScreenStep <= 3 && (
+        {introScreenStep <= MAX_STEPS && (
           <IntroScreen
             step={introScreenStep}
             onChangeStep={() => onChangeStep(introScreenStep + 1)}
@@ -145,13 +148,19 @@ function App() {
           pathId={pathId}
           infoClick={infoClick}
         />
-        <div className="App__pathInfo">
+        <div
+          className={classNames('App__pathInfo', {
+            'App__pathInfo--highlight': introScreenStep === 2,
+          })}
+        >
           <IconButton color="inherit" onClick={() => onInfoClick(!infoClick)}>
             <InfoIcon fontSize="inherit" />
           </IconButton>
         </div>
         <div
-          className="App__icon"
+          className={classNames('App__icon', {
+            'App__icon--highlight': introScreenStep === 1,
+          })}
           onClick={() => {
             if (!isOpen) {
               changeOnOpen(true);

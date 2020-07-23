@@ -54,11 +54,11 @@ function Map({
   useEffect(() => {
     const pathInfo = getPathInfo(pathId);
     setPosition(pathInfo.position);
-    setMarker(getPathInfo(pathId));
     if (isInitialRender.current) {
       isInitialRender.current = false;
       return;
     }
+    setMarker(getPathInfo(pathId));
   }, [infoClick, pathId]);
   const zoom = 14;
   const containerStyle = {
