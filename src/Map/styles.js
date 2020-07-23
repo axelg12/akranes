@@ -36,7 +36,16 @@ export default [
     elementType: 'labels.text.fill',
     stylers: [
       {
+        visibility: 'off',
         color: '#bdbdbd',
+      },
+    ],
+  },
+  {
+    featureType: 'administrative.neighborhood',
+    stylers: [
+      {
+        visibility: 'off',
       },
     ],
   },
@@ -122,6 +131,15 @@ export default [
     ],
   },
   {
+    featureType: 'road',
+    elementType: 'labels',
+    stylers: [
+      {
+        visibility: 'off',
+      },
+    ],
+  },
+  {
     featureType: 'transit.line',
     elementType: 'geometry',
     stylers: [
@@ -154,6 +172,15 @@ export default [
     stylers: [
       {
         color: '#9e9e9e',
+      },
+    ],
+  },
+  {
+    featureType: 'water',
+    elementType: 'labels.text',
+    stylers: [
+      {
+        visibility: 'off',
       },
     ],
   },

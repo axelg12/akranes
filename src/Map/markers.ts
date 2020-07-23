@@ -18,7 +18,7 @@ export const MARKERS_CONSTANTS = {
   ELINARSAETI: 'elinarsaeti',
   GARDAR: 'gardar',
   AKRAFJALL: 'akrafjall',
-  SEMENTSSTROMPUR: 'Sementsstrompur',
+  SEMENTSSTROMPUR: 'sementsstrompur',
   LANGISANDUR: 'langisandur',
   AKRATORG: 'akratorg',
   FOTBOLTAMENN: 'fotboltamenn',
