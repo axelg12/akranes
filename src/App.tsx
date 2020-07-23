@@ -49,22 +49,12 @@ function App() {
     function successUserPos(position: GeoLocation) {
       const { latitude, longitude } = position.coords;
       // position is the same, no need to update
-      if (userPosition.lat === latitude && userPosition.lng === longitude) {
-        return;
-      }
-      console.log(
-        'success',
-        userPosition.lat,
-        latitude,
-        userPosition.lng,
-        longitude
-      );
       setUserPosition({ lat: latitude, lng: longitude });
       console.log('set');
     }
     console.log('abc');
     navigator.geolocation.watchPosition(successUserPos, errorUserPos, options);
-  }, [userPosition]);
+  }, []);
 
   const list = () => {
     if (subSelection === 'art') {
