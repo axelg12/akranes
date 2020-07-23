@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import IconButton from '@material-ui/core/IconButton';
@@ -22,12 +22,49 @@ const Loader = () => (
   </div>
 );
 
+interface GeoLocation {
+  coords: {
+    latitude: number;
+    longitude: number;
+  };
+}
+
 function App() {
   const [isOpen, changeOnOpen] = useState(false);
   const [infoClick, onInfoClick] = useState(false);
+  console.log('APp');
+  const [userPosition, setUserPosition] = useState({ lat: 0, lng: 0 });
   const [subSelection, setSubSelection] = useState<string | undefined>();
   const [pathId, changePathId] = useState('all');
   const { t } = useTranslation();
+
+  function errorUserPos() {
+    console.log('Sorry, no position available.');
+  }
+
+  useEffect(() => {
+    const options = {
+      enableHighAccuracy: true,
+    };
+    function successUserPos(position: GeoLocation) {
+      const { latitude, longitude } = position.coords;
+      // position is the same, no need to update
+      if (userPosition.lat === latitude && userPosition.lng === longitude) {
+        return;
+      }
+      console.log(
+        'success',
+        userPosition.lat,
+        latitude,
+        userPosition.lng,
+        longitude
+      );
+      setUserPosition({ lat: latitude, lng: longitude });
+      console.log('set');
+    }
+    console.log('abc');
+    navigator.geolocation.watchPosition(successUserPos, errorUserPos, options);
+  }, [userPosition]);
 
   const list = () => {
     if (subSelection === 'art') {
@@ -101,11 +138,16 @@ function App() {
       setSubSelection(undefined);
     }, 500);
   };
+  console.log('user', userPosition);
   return (
     <Suspense fallback={<Loader />}>
       <div className="App">
         <Header />
-        <Map pathId={pathId} infoClick={infoClick} />
+        <Map
+          userPosition={userPosition}
+          pathId={pathId}
+          infoClick={infoClick}
+        />
         <div className="App__pathInfo">
           <IconButton color="inherit" onClick={() => onInfoClick(!infoClick)}>
             <InfoIcon fontSize="inherit" />

@@ -5,26 +5,25 @@ import {
   Marker,
   Polyline,
 } from '@react-google-maps/api';
-import { options, getMarkersByPath, getPathInfo } from './paths';
 import Drawer from '@material-ui/core/Drawer';
+import { options, getMarkersByPath, getPathInfo } from './paths';
+import markers from './markers';
 import { IMarker } from '../interfaces/interfaces';
 import DrawerContent from '../Drawer';
 import ListView from '../ListView';
-import markers from './markers';
+import { IPosition } from '../interfaces/interfaces';
+import CurrentPositionImage from './images/currentPos.png';
 import styles from './styles';
 import './Map.css';
-
-interface polyline {
-  lat: number;
-  lng: number;
-}
 
 function Map({
   pathId = 'All',
   infoClick,
+  userPosition,
 }: {
   pathId: string;
   infoClick: boolean;
+  userPosition: IPosition;
 }) {
   const onClick = (marker: IMarker) => {
     setMarker(marker);
@@ -96,18 +95,23 @@ function Map({
               gestureHandling: 'greedy',
             }}
           >
-            {markerAndPathInfo.path.polylines.map((polyline: polyline[], i) => {
-              return (
-                <Polyline
-                  key={i}
-                  path={polyline}
-                  options={{
-                    ...options,
-                    strokeColor: markerAndPathInfo.path.color,
-                  }}
-                />
-              );
-            })}
+            {markerAndPathInfo.path.polylines.map(
+              (polyline: IPosition[], i) => {
+                return (
+                  <Polyline
+                    key={i}
+                    path={polyline}
+                    options={{
+                      ...options,
+                      strokeColor: markerAndPathInfo.path.color,
+                    }}
+                  />
+                );
+              }
+            )}
+            {userPosition.lat !== 0 && userPosition.lng !== 0 && (
+              <Marker icon={CurrentPositionImage} position={userPosition} />
+            )}
             {markers.map((marker: IMarker | undefined, index) => {
               if (marker && markerAndPathInfo.markers.includes(marker.id)) {
                 return (
