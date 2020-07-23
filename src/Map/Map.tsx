@@ -79,6 +79,10 @@ function Map({
     }
   }
 
+  function closeMap() {
+    setMarker(null);
+  }
+
   const markerAndPathInfo = getMarkersByPath(pathId);
   return (
     <Fragment>
@@ -136,11 +140,11 @@ function Map({
           className="Map__drawer"
           anchor="left"
           open={selectedMarker !== null}
-          onClose={() => {
-            setMarker(null);
-          }}
+          onClose={closeMap}
         >
-          {selectedMarker && <DrawerContent marker={selectedMarker} />}
+          {selectedMarker && (
+            <DrawerContent onClose={closeMap} marker={selectedMarker} />
+          )}
         </Drawer>
       </div>
       <ListView googleMap={googleMap} pathId={pathId} />

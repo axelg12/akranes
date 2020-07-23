@@ -54,9 +54,7 @@ function App() {
       const { latitude, longitude } = position.coords;
       // position is the same, no need to update
       setUserPosition({ lat: latitude, lng: longitude });
-      console.log('set');
     }
-    console.log('abc');
     navigator.geolocation.watchPosition(successUserPos, errorUserPos, options);
   }, []);
 
@@ -132,7 +130,6 @@ function App() {
       setSubSelection(undefined);
     }, 500);
   };
-  console.log('user', userPosition);
   return (
     <Suspense fallback={<Loader />}>
       <div className="App">

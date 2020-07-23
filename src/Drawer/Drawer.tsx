@@ -7,17 +7,28 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Link from '@material-ui/core/Link';
+import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { IMarker } from '../interfaces/interfaces';
 import './Drawer.css';
 
-export default function Drawer({ marker }: { marker: IMarker }) {
+export default function Drawer({
+  marker,
+  onClose,
+}: {
+  marker: IMarker;
+  onClose: Function;
+}) {
   const { t } = useTranslation();
 
   new ClipBoard('.MuiButton-label');
   return (
     <Card className="Drawer">
       <CardActionArea>
+        <IconButton className="Drawer__closeButton" onClick={() => onClose()}>
+          <CloseIcon fontSize="inherit" />
+        </IconButton>
         <CardMedia
           className="Drawer__image"
           image={marker.info.cardImg}
