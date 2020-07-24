@@ -75,3 +75,7 @@ const smallImageMapper: Dic = {
 export function getCircleImage(pathID: string) {
   return smallImageMapper[pathID] || null;
 }
+
+export function getLargeImage(pathID: string) {
+  return `/akranes-2.0/large/${pathID}.png`;
+}
