@@ -1,5 +1,4 @@
 import markers from './markers';
-import placeholder from '../images/placeholder.jpg';
 import runningPath from './paths/runningPath';
 import artWalk1, { artWalkOneMarkers } from './paths/artWalk1';
 import artWalk2, { artWalkTwoMarkers } from './paths/artWalk2';
@@ -26,7 +25,7 @@ function getPathInfoById(pathID: string) {
     default:
       title = 'listaganga';
       desc = 'listaganga';
-      cardImg = placeholder;
+      cardImg = '/akranes-2.0/large/placeholder.jpg';
       position = { lat: 64.3152673, lng: -22.0618914 };
       break;
   }
