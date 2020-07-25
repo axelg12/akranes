@@ -406,5 +406,29 @@
     "Large image": "",
     "more": "",
     "paths": "artwalk4"
+  },
+  {
+    "id": "start",
+    "name": "Minnisvarði um Guðmund Jónsson",
+    "desc": "temp17",
+    "lat": 64.318458,
+    "lng": -22.052542,
+    "img": "https://i.ibb.co/p4z1Lg7/golf.png",
+    "Small image": "https://res.cloudinary.com/itb-database/image/upload/v1/ServiceProviders/f7dbbe6ac9d598d40f768040b56d1735",
+    "Large image": "",
+    "more": "",
+    "paths": "running"
+  },
+  {
+    "id": "end",
+    "name": "Minnisvarði um Guðmund Jónsson",
+    "desc": "temp17",
+    "lat": 64.3184,
+    "lng": -22.05265,
+    "img": "https://i.ibb.co/p4z1Lg7/golf.png",
+    "Small image": "https://res.cloudinary.com/itb-database/image/upload/v1/ServiceProviders/f7dbbe6ac9d598d40f768040b56d1735",
+    "Large image": "",
+    "more": "",
+    "paths": "running"
   }
 ]

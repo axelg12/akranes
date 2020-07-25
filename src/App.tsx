@@ -112,7 +112,7 @@ function App() {
             </ListItemIcon>
             <ListItemText primary={t('art_title')} />
           </ListItem>
-          <ListItem button onClick={() => changePathId('running')}>
+          <ListItem button onClick={() => setSelectedPath('running')}>
             <ListItemIcon>
               <DirectionsRunIcon />
             </ListItemIcon>

@@ -30,7 +30,7 @@ function Map({
   };
   const mapRef: any = useRef(null);
   const isInitialRender = useRef(true);
-  const [position, setPosition] = useState({
+  const [position] = useState({
     lat: 64.3152673,
     lng: -22.0618914,
   });
@@ -53,13 +53,15 @@ function Map({
   }, []);
   useEffect(() => {
     const pathInfo = getPathInfo(pathId);
-    setPosition(pathInfo.position);
+    if (googleMap) {
+      googleMap.panTo(pathInfo.position);
+    }
     if (isInitialRender.current) {
       isInitialRender.current = false;
       return;
     }
-    setMarker(getPathInfo(pathId));
-  }, [infoClick, pathId]);
+    setMarker(pathInfo);
+  }, [infoClick, pathId, googleMap]);
   const zoom = 14;
   const containerStyle = {
     height: 'calc(100vh - 70px)',
@@ -70,19 +72,9 @@ function Map({
     mapRef.current = map;
   }
 
-  function handleCenter() {
-    if (mapRef && mapRef.current) {
-      const newCenter = mapRef.current!.getCenter();
-      if (newCenter) {
-        setPosition(newCenter.toJSON());
-      }
-    }
-  }
-
   function closeMap() {
     setMarker(null);
   }
-
   const markerAndPathInfo = getMarkersByPath(pathId);
   return (
     <Fragment>
@@ -93,7 +85,6 @@ function Map({
               handleLoad(map);
               setMap(map);
             }}
-            onDragEnd={handleCenter}
             mapContainerStyle={containerStyle}
             center={position}
             zoom={zoom}

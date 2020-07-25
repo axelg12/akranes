@@ -20,11 +20,33 @@ const options = {
 };
 
 function getPathInfoById(pathID: string) {
-  let title, desc, cardImg, position;
+  let title = '',
+    desc = '',
+    cardImg = '',
+    position;
+  console.log('pathID', pathID);
   switch (pathID) {
+    case 'art_one':
+      cardImg = '/akranes-2.0/large/placeholder.jpg';
+      position = { lat: 64.308762, lng: -22.094601 };
+      break;
+    case 'art_two':
+      cardImg = '/akranes-2.0/large/placeholder.jpg';
+      position = { lat: 64.320822, lng: -22.076756 };
+      break;
+    case 'art_three':
+      cardImg = '/akranes-2.0/large/placeholder.jpg';
+      position = { lat: 64.322397, lng: -22.066692 };
+      break;
+    case 'art_four':
+      cardImg = '/akranes-2.0/large/placeholder.jpg';
+      position = { lat: 64.319392, lng: -22.046 };
+      break;
+    case 'running':
+      cardImg = '/akranes-2.0/large/placeholder.jpg';
+      position = { lat: 64.317597, lng: -22.054151 };
+      break;
     default:
-      title = 'listaganga';
-      desc = 'listaganga';
       cardImg = '/akranes-2.0/large/placeholder.jpg';
       position = { lat: 64.3152673, lng: -22.0618914 };
       break;
