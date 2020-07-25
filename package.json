@@ -1,7 +1,7 @@
 {
-  "name": "akranes-2.0",
-  "version": "0.1.0",
-  "homepage": "http://axelg12.github.io/akranes-2.0",
+  "name": "akranes",
+  "version": "1.0.0",
+  "homepage": "http://axelg12.github.io/akranes",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.12",
