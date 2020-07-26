@@ -1,6 +1,7 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { initGA, GApageView } from './index';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
@@ -50,6 +51,8 @@ function App() {
     const options = {
       enableHighAccuracy: true,
     };
+    initGA();
+    GApageView();
     function successUserPos(position: GeoLocation) {
       const { latitude, longitude } = position.coords;
       // position is the same, no need to update
@@ -58,12 +61,17 @@ function App() {
     navigator.geolocation.watchPosition(successUserPos, errorUserPos, options);
   }, []);
 
+  function pathSelection(pathId: string) {
+    GApageView(pathId);
+    setSelectedPath(pathId);
+  }
+
   const list = () => {
     if (subSelection === 'art') {
       return (
         <div>
           <List>
-            <ListItem button onClick={() => setSelectedPath('art_one')}>
+            <ListItem button onClick={() => pathSelection('art_one')}>
               <ListItemIcon>
                 <BrushIcon />
               </ListItemIcon>
@@ -71,7 +79,7 @@ function App() {
             </ListItem>
           </List>
           <List>
-            <ListItem button onClick={() => setSelectedPath('art_two')}>
+            <ListItem button onClick={() => pathSelection('art_two')}>
               <ListItemIcon>
                 <BrushIcon />
               </ListItemIcon>
@@ -79,7 +87,7 @@ function App() {
             </ListItem>
           </List>
           <List>
-            <ListItem button onClick={() => setSelectedPath('art_three')}>
+            <ListItem button onClick={() => pathSelection('art_three')}>
               <ListItemIcon>
                 <BrushIcon />
               </ListItemIcon>
@@ -87,7 +95,7 @@ function App() {
             </ListItem>
           </List>
           <List>
-            <ListItem button onClick={() => setSelectedPath('art_four')}>
+            <ListItem button onClick={() => pathSelection('art_four')}>
               <ListItemIcon>
                 <BrushIcon />
               </ListItemIcon>
