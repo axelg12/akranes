@@ -5,6 +5,7 @@ import {
   Marker,
   Polyline,
 } from '@react-google-maps/api';
+import { useTranslation } from 'react-i18next';
 import Drawer from '@material-ui/core/Drawer';
 import { options, getMarkersByPath, getPathInfo } from './paths';
 import markers from './markers';
@@ -36,6 +37,13 @@ function Map({
   });
   const [selectedMarker, setMarker] = useState<null | IMarker>(null);
   const [googleMap, setMap] = useState<any>(null);
+  const { t } = useTranslation();
+  const zoom = 14;
+  const containerStyle = {
+    height: 'calc(100vh - 70px)',
+    width: '100%',
+  };
+
   useEffect(() => {
     if (window.location.hash) {
       // Remove the hash
@@ -51,6 +59,7 @@ function Map({
       }
     }
   }, []);
+
   useEffect(() => {
     const pathInfo = getPathInfo(pathId);
     if (googleMap) {
@@ -62,11 +71,6 @@ function Map({
     }
     setMarker(pathInfo);
   }, [infoClick, pathId, googleMap]);
-  const zoom = 14;
-  const containerStyle = {
-    height: 'calc(100vh - 70px)',
-    width: '100%',
-  };
 
   function handleLoad(map: any) {
     mapRef.current = map;
@@ -125,7 +129,7 @@ function Map({
                         scaledSize: new window.google.maps.Size(32, 32),
                         labelOrigin: new google.maps.Point(16, 40),
                       }}
-                      label={marker.info.title}
+                      label={t(`${marker.id}_title`)}
                     />
                   );
                 }

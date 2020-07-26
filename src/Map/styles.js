@@ -11,7 +11,7 @@ export default [
     elementType: 'labels.icon',
     stylers: [
       {
-        visibility: 'on',
+        visibility: 'off',
       },
     ],
   },
