@@ -112,19 +112,25 @@ function Map({
             {userPosition.lat !== 0 && userPosition.lng !== 0 && (
               <Marker icon={CurrentPositionImage} position={userPosition} />
             )}
-            {markers.map((marker: IMarker | undefined, index) => {
-              if (marker && markerAndPathInfo.markers.includes(marker.id)) {
-                return (
-                  <Marker
-                    key={index}
-                    onClick={() => onClick(marker)}
-                    position={marker.position}
-                    icon={marker.img}
-                  />
-                );
-              }
-              return null;
-            })}
+            {googleMap &&
+              markers.map((marker: IMarker | undefined, index) => {
+                if (marker && markerAndPathInfo.markers.includes(marker.id)) {
+                  return (
+                    <Marker
+                      key={index}
+                      onClick={() => onClick(marker)}
+                      position={marker.position}
+                      icon={{
+                        url: marker.img,
+                        scaledSize: new window.google.maps.Size(32, 32),
+                        labelOrigin: new google.maps.Point(16, 40),
+                      }}
+                      label={marker.info.title}
+                    />
+                  );
+                }
+                return null;
+              })}
           </GoogleMap>
         </LoadScript>
         <Drawer
