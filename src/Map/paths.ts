@@ -4,6 +4,9 @@ import artWalk1, { artWalkOneMarkers } from './paths/artWalk1';
 import artWalk2, { artWalkTwoMarkers } from './paths/artWalk2';
 import artWalk3, { artWalkThreeMarkers } from './paths/artWalk3';
 import artWalk4, { artWalkFourMarkers } from './paths/artWalk4';
+import beachwalk1 from './paths/beachwalk1';
+import beachwalk2 from './paths/beachwalk2';
+import beachwalk3 from './paths/beachwalk3';
 
 const options = {
   strokeColor: '#BAA390',
@@ -27,23 +30,23 @@ function getPathInfoById(pathID: string) {
   console.log('pathID', pathID);
   switch (pathID) {
     case 'art_one':
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/listganga1.png';
       position = { lat: 64.308762, lng: -22.094601 };
       break;
     case 'art_two':
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/listganga2.png';
       position = { lat: 64.320822, lng: -22.076756 };
       break;
     case 'art_three':
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/listganga3.png';
       position = { lat: 64.322397, lng: -22.066692 };
       break;
     case 'art_four':
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/listganga4.png';
       position = { lat: 64.319392, lng: -22.046 };
       break;
     case 'running':
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/hlaup.png';
       position = { lat: 64.317597, lng: -22.054151 };
       break;
     default:
@@ -114,6 +117,31 @@ function getMarkersByPath(pathId: string) {
         path: {
           color: '#005a9c',
           polylines: [artWalk4],
+        },
+      };
+    case 'beach_one':
+      return {
+        markers: [],
+        path: {
+          color: '#005a9c',
+          polylines: [beachwalk1],
+        },
+      };
+    case 'beach_two':
+      return {
+        markers: [],
+        path: {
+          color: '#005a9c',
+          polylines: [beachwalk2],
+        },
+      };
+
+    case 'beach_three':
+      return {
+        markers: [],
+        path: {
+          color: '#005a9c',
+          polylines: [beachwalk3],
         },
       };
     default:

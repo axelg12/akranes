@@ -30,6 +30,10 @@ import elinarsaeti from './images/elinarsaeti.png';
 
 // artwalk 3
 import bjartsynn from './images/bjartsynn.png';
+import gnyr from './images/gnyr.png';
+import kubbaleikur from './images/kubbaleikur.png';
+import grettistak from './images/grettistak.png';
+import himnariki from './images/himnariki.png';
 
 // artwalk 4
 import irski from './images/irski.png';
@@ -70,6 +74,10 @@ const smallImageMapper: Dic = {
   langisandur: langisandur,
   breidin: breidin,
   gardar: gardar,
+  gnyr: gnyr,
+  kubbaleikur: kubbaleikur,
+  grettistak: grettistak,
+  himnariki: himnariki,
 };
 
 export function getCircleImage(pathID: string) {
