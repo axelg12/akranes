@@ -1,9 +1,13 @@
 import markers from './markers';
 import runningPath from './paths/runningPath';
+import { ALL_MARKERS } from './markers';
 import artWalk1, { artWalkOneMarkers } from './paths/artWalk1';
 import artWalk2, { artWalkTwoMarkers } from './paths/artWalk2';
 import artWalk3, { artWalkThreeMarkers } from './paths/artWalk3';
 import artWalk4, { artWalkFourMarkers } from './paths/artWalk4';
+import beachwalk1, { beachWalkOneMarkers } from './paths/beachwalk1';
+import beachwalk2, { beachWalkTwoMarkers } from './paths/beachwalk2';
+import beachwalk3, { beachWalkThreeMarkers } from './paths/beachwalk3';
 
 const options = {
   strokeColor: '#BAA390',
@@ -24,30 +28,41 @@ function getPathInfoById(pathID: string) {
     desc = '',
     cardImg = '',
     position;
-  console.log('pathID', pathID);
   switch (pathID) {
     case 'art_one':
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/listganga1.png';
       position = { lat: 64.308762, lng: -22.094601 };
       break;
     case 'art_two':
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/listganga2.png';
       position = { lat: 64.320822, lng: -22.076756 };
       break;
     case 'art_three':
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/listganga3.png';
       position = { lat: 64.322397, lng: -22.066692 };
       break;
     case 'art_four':
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/listganga4.png';
       position = { lat: 64.319392, lng: -22.046 };
       break;
     case 'running':
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/hlaup.png';
       position = { lat: 64.317597, lng: -22.054151 };
       break;
+    case 'beach_one':
+      cardImg = '/akranes/large/beachwalk1.png';
+      position = { lat: 64.326161, lng: -22.070155 };
+      break;
+    case 'beach_two':
+      cardImg = '/akranes/large/beachwalk2.png';
+      position = { lat: 64.32114, lng: -22.084875 };
+      break;
+    case 'beach_three':
+      cardImg = '/akranes/large/beachwalk3.png';
+      position = { lat: 64.316961, lng: -22.060202 };
+      break;
     default:
-      cardImg = '/akranes/large/placeholder.jpg';
+      cardImg = '/akranes/large/akranes.png';
       position = { lat: 64.3152673, lng: -22.0618914 };
       break;
   }
@@ -70,7 +85,7 @@ export function getPathInfo(pathId: string) {
 }
 
 const allMarkers = markers
-  .filter((marker) => marker.paths.filter((path) => path).length === 0)
+  .filter((marker) => ALL_MARKERS.includes(marker.id))
   .map((marker) => marker.id);
 
 function getMarkersByPath(pathId: string) {
@@ -114,6 +129,31 @@ function getMarkersByPath(pathId: string) {
         path: {
           color: '#005a9c',
           polylines: [artWalk4],
+        },
+      };
+    case 'beach_one':
+      return {
+        markers: beachWalkOneMarkers,
+        path: {
+          color: '#005a9c',
+          polylines: [beachwalk1],
+        },
+      };
+    case 'beach_two':
+      return {
+        markers: beachWalkTwoMarkers,
+        path: {
+          color: '#005a9c',
+          polylines: [beachwalk2],
+        },
+      };
+
+    case 'beach_three':
+      return {
+        markers: beachWalkThreeMarkers,
+        path: {
+          color: '#005a9c',
+          polylines: [beachwalk3],
         },
       };
     default:

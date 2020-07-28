@@ -6,15 +6,9 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import BrushIcon from '@material-ui/icons/Brush';
-import ListItem from '@material-ui/core/ListItem';
-import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
-import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import Header from './Header';
 import Map from './Map';
+import PathSelection from './PathSelection';
 import IntroScreen from './IntroScreen';
 import './App.css';
 
@@ -61,77 +55,8 @@ function App() {
     navigator.geolocation.watchPosition(successUserPos, errorUserPos, options);
   }, []);
 
-  function pathSelection(pathId: string) {
-    GApageView(pathId);
-    setSelectedPath(pathId);
-  }
-
-  const list = () => {
-    if (subSelection === 'art') {
-      return (
-        <div>
-          <List>
-            <ListItem button onClick={() => pathSelection('art_one')}>
-              <ListItemIcon>
-                <BrushIcon />
-              </ListItemIcon>
-              <ListItemText primary="Listaganga 1" />
-            </ListItem>
-          </List>
-          <List>
-            <ListItem button onClick={() => pathSelection('art_two')}>
-              <ListItemIcon>
-                <BrushIcon />
-              </ListItemIcon>
-              <ListItemText primary="Listaganga 2" />
-            </ListItem>
-          </List>
-          <List>
-            <ListItem button onClick={() => pathSelection('art_three')}>
-              <ListItemIcon>
-                <BrushIcon />
-              </ListItemIcon>
-              <ListItemText primary="Listaganga 3" />
-            </ListItem>
-          </List>
-          <List>
-            <ListItem button onClick={() => pathSelection('art_four')}>
-              <ListItemIcon>
-                <BrushIcon />
-              </ListItemIcon>
-              <ListItemText primary="Listaganga 4" />
-            </ListItem>
-          </List>
-        </div>
-      );
-    }
-    return (
-      <div>
-        <List>
-          <ListItem button onClick={() => setSelectedPath('all')}>
-            <ListItemIcon>
-              <PhotoCameraIcon />
-            </ListItemIcon>
-            <ListItemText primary={t('all_title')} />
-          </ListItem>
-          <ListItem button onClick={() => setSubSelection('art')}>
-            <ListItemIcon>
-              <BrushIcon />
-            </ListItemIcon>
-            <ListItemText primary={t('art_title')} />
-          </ListItem>
-          <ListItem button onClick={() => setSelectedPath('running')}>
-            <ListItemIcon>
-              <DirectionsRunIcon />
-            </ListItemIcon>
-            <ListItemText primary={t('running_title')} />
-          </ListItem>
-        </List>
-      </div>
-    );
-  };
-
   const setSelectedPath = (selectedPathId: string) => {
+    GApageView(pathId);
     changePathId(selectedPathId);
     changeOnOpen(false);
     setTimeout(() => {
@@ -183,7 +108,12 @@ function App() {
               setSubSelection(undefined);
             }}
           >
-            {list()}
+            <PathSelection
+              subSelection={subSelection}
+              setSelectedPath={setSelectedPath}
+              t={t}
+              setSubSelection={setSubSelection}
+            />
           </Drawer>
         </div>
       </div>
