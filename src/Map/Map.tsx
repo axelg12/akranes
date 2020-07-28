@@ -129,7 +129,11 @@ function Map({
                         scaledSize: new window.google.maps.Size(32, 32),
                         labelOrigin: new google.maps.Point(16, 40),
                       }}
-                      label={t(`${marker.id}_title`)}
+                      label={{
+                        fontSize: '12px',
+                        color: '#616161',
+                        text: t(`${marker.id}_title`),
+                      }}
                     />
                   );
                 }

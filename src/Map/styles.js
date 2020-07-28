@@ -99,7 +99,7 @@ export default [
     elementType: 'labels.text.fill',
     stylers: [
       {
-        color: '#757575',
+        color: '#fff',
       },
     ],
   },
