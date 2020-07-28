@@ -40,6 +40,15 @@ import irski from './images/irski.png';
 import jonasm from './images/jonasm.png';
 import gudmundurj from './images/gudmundurj.png';
 
+// beachwalks
+import kalmansvik from './images/kalmansvik.png';
+import baskaganga from './images/baskaganga.png';
+import hundar from './images/hundar.png';
+import krokalonStart from './images/krokalonStart.png';
+import krokalonEnd from './images/krokalonEnd.png';
+import solmundarhofdi from './images/solmundarhofdi.png';
+import aefingartaeki from './images/aefingartaeki.png';
+
 interface Dic {
   [key: string]: string;
 }
@@ -78,6 +87,14 @@ const smallImageMapper: Dic = {
   kubbaleikur: kubbaleikur,
   grettistak: grettistak,
   himnariki: himnariki,
+  kalmansvik: kalmansvik,
+  elinarhofdi: elinarsaeti,
+  baskaganga: baskaganga,
+  hundar: hundar,
+  krokalonStart: krokalonStart,
+  krokalonEnd: krokalonEnd,
+  solmundarhofdi: solmundarhofdi,
+  aefingartaeki: aefingartaeki,
 };
 
 export function getCircleImage(pathID: string) {

@@ -2,18 +2,16 @@ import { getCircleImage, getLargeImage } from './imageUtils';
 import { IMarker } from '../interfaces/interfaces';
 import rawJson from './rawJson.json';
 
-export const MARKERS_CONSTANTS = {
-  GUDLAUG: 'gudlaug',
-  BREIDIN: 'breidin',
-  ELINARSAETI: 'elinarsaeti',
-  GARDAR: 'gardar',
-  AKRAFJALL: 'akrafjall',
-  SEMENTSSTROMPUR: 'sementsstrompur',
-  LANGISANDUR: 'langisandur',
-  AKRATORG: 'akratorg',
-  FOTBOLTAMENN: 'fotboltamenn',
-  GOLF: 'golf',
-};
+export const ALL_MARKERS = [
+  'gudlaug',
+  'breidin',
+  'elinarsaeti',
+  'gardar',
+  'akrafjall',
+  'sementsstrompur',
+  'langisandur',
+  'akratorg',
+];
 
 const markers = rawJson.map((marker) => {
   if (marker.lat) {
@@ -21,8 +19,6 @@ const markers = rawJson.map((marker) => {
       id: marker.id,
       position: { lat: Number(marker.lat), lng: Number(marker.lng) },
       info: {
-        title: marker.name,
-        desc: marker.desc,
         cardImg: getLargeImage(marker.id),
         more: '',
       },

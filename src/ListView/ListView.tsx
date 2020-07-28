@@ -51,7 +51,9 @@ function ListView({ googleMap, pathId }: { googleMap: any; pathId: string }) {
           </CardActionArea>
           <CardActions>
             {marker.info.more && (
-              <Link target="_blank" href={marker.info.more}></Link>
+              <Link target="_blank" href={marker.info.more}>
+                {t('more')}
+              </Link>
             )}
           </CardActions>
         </Card>

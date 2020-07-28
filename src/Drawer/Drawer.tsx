@@ -26,9 +26,13 @@ export default function Drawer({
   return (
     <Card className="Drawer">
       <CardActionArea>
-        <IconButton className="Drawer__closeButton" onClick={() => onClose()}>
-          <CloseIcon fontSize="inherit" />
-        </IconButton>
+        <div className="Drawer__closeButton" onClick={() => onClose()}>
+          <CloseIcon
+            className="Drawer__closeButton"
+            onClick={() => onClose()}
+            fontSize="inherit"
+          />
+        </div>
         <CardMedia
           className="Drawer__image"
           image={marker.info.cardImg}
