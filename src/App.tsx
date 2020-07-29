@@ -69,7 +69,13 @@ function App() {
         {introScreenStep <= MAX_STEPS && (
           <IntroScreen
             step={introScreenStep}
-            onChangeStep={() => onChangeStep(introScreenStep + 1)}
+            onChangeStep={(close: boolean) => {
+              if (close) {
+                onChangeStep(MAX_STEPS + 1);
+              } else {
+                onChangeStep(introScreenStep + 1);
+              }
+            }}
           />
         )}
         <Header />

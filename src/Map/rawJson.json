@@ -114,8 +114,8 @@
   {
     "id": "skvisurnar",
     "name": "Skvísurnar",
-    "lat": 64.317579,
-    "lng": -22.08187,
+    "lat": 64.31699,
+    "lng": -22.08558,
     "more": "",
     "paths": "artwalk1"
   },
@@ -202,8 +202,8 @@
   {
     "id": "bjartsynn",
     "name": "Bjartsýnn",
-    "lat": 64.32165,
-    "lng": -22.06807,
+    "lat": 64.322379,
+    "lng": -22.066606,
     "more": "",
     "paths": "artwalk3"
   },
@@ -350,5 +350,13 @@
     "lng": -22.057889,
     "more": "",
     "paths": "beach3"
+  },
+  {
+    "id": "gardalundur",
+    "name": "",
+    "lat": 64.321719,
+    "lng": -22.036703,
+    "more": "",
+    "paths": ""
   }
 ]

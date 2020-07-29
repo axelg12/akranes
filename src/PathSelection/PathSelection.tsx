@@ -29,25 +29,25 @@ function PathSelection({
             <ListItemIcon>
               <BrushIcon />
             </ListItemIcon>
-            <ListItemText primary="Listaganga 1" />
+            <ListItemText primary={t('art_one_title')} />
           </ListItem>
           <ListItem button onClick={() => setSelectedPath('art_two')}>
             <ListItemIcon>
               <BrushIcon />
             </ListItemIcon>
-            <ListItemText primary="Listaganga 2" />
+            <ListItemText primary={t('art_two_title')} />
           </ListItem>
           <ListItem button onClick={() => setSelectedPath('art_three')}>
             <ListItemIcon>
               <BrushIcon />
             </ListItemIcon>
-            <ListItemText primary="Listaganga 3" />
+            <ListItemText primary={t('art_three_title')} />
           </ListItem>
           <ListItem button onClick={() => setSelectedPath('art_four')}>
             <ListItemIcon>
               <BrushIcon />
             </ListItemIcon>
-            <ListItemText primary="Listaganga 4" />
+            <ListItemText primary={t('art_four_title')} />
           </ListItem>
         </List>
       </div>
@@ -61,19 +61,45 @@ function PathSelection({
             <ListItemIcon>
               <BeachAccessIcon />
             </ListItemIcon>
-            <ListItemText primary="Strandganga 1" />
+            <ListItemText primary={t('beach_one_title')} />
           </ListItem>
           <ListItem button onClick={() => setSelectedPath('beach_two')}>
             <ListItemIcon>
               <BeachAccessIcon />
             </ListItemIcon>
-            <ListItemText primary="Strandganga 2" />
+            <ListItemText primary={t('beach_two_title')} />
           </ListItem>
           <ListItem button onClick={() => setSelectedPath('beach_three')}>
             <ListItemIcon>
               <BeachAccessIcon />
             </ListItemIcon>
-            <ListItemText primary="Strandganga 3" />
+            <ListItemText primary={t('beach_three_title')} />
+          </ListItem>
+        </List>
+      </div>
+    );
+  }
+  if (subSelection === 'running') {
+    return (
+      <div>
+        <List>
+          <ListItem button onClick={() => setSelectedPath('running_one')}>
+            <ListItemIcon>
+              <DirectionsRunIcon />
+            </ListItemIcon>
+            <ListItemText primary={t('running_one_title')} />
+          </ListItem>
+          <ListItem button onClick={() => setSelectedPath('running_two')}>
+            <ListItemIcon>
+              <DirectionsRunIcon />
+            </ListItemIcon>
+            <ListItemText primary={t('running_two_title')} />
+          </ListItem>
+          <ListItem button onClick={() => setSelectedPath('running_three')}>
+            <ListItemIcon>
+              <DirectionsRunIcon />
+            </ListItemIcon>
+            <ListItemText primary={t('running_three_title')} />
           </ListItem>
         </List>
       </div>
@@ -94,7 +120,7 @@ function PathSelection({
           </ListItemIcon>
           <ListItemText primary={t('art_title')} />
         </ListItem>
-        <ListItem button onClick={() => setSelectedPath('running')}>
+        <ListItem button onClick={() => setSubSelection('running')}>
           <ListItemIcon>
             <DirectionsRunIcon />
           </ListItemIcon>

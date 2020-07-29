@@ -30,6 +30,18 @@
 .IntroScreen__content.App__pathInfo {
   z-index: 1500;
 }
+.IntroScreen__buttonContainer {
+  display: flex;
+}
+.IntroScreen__buttonContainer .IntroScreen__button {
+  flex: 1;
+}
+.IntroScreen__buttonContainer .IntroScreen__button--next {
+  margin-left: 5px;
+}
+.IntroScreen__buttonContainer .IntroScreen__button--close {
+  margin-right: 5px;
+}
 @media only screen and (min-width: 768px) {
   .IntroScreen {
     justify-content: center;

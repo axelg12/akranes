@@ -95,6 +95,7 @@ const smallImageMapper: Dic = {
   krokalonEnd: krokalonEnd,
   solmundarhofdi: solmundarhofdi,
   aefingartaeki: aefingartaeki,
+  gardalundur: baskaganga,
 };
 
 export function getCircleImage(pathID: string) {
