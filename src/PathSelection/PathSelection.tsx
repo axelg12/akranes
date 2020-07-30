@@ -3,6 +3,7 @@ import List from '@material-ui/core/List';
 import BrushIcon from '@material-ui/icons/Brush';
 import ListItem from '@material-ui/core/ListItem';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -105,6 +106,26 @@ function PathSelection({
       </div>
     );
   }
+  if (subSelection === 'bike') {
+    return (
+      <div>
+        <List>
+          <ListItem button onClick={() => setSelectedPath('bike_one')}>
+            <ListItemIcon>
+              <DirectionsBikeIcon />
+            </ListItemIcon>
+            <ListItemText primary={t('bike_one_title')} />
+          </ListItem>
+          <ListItem button onClick={() => setSelectedPath('bike_two')}>
+            <ListItemIcon>
+              <DirectionsBikeIcon />
+            </ListItemIcon>
+            <ListItemText primary={t('bike_two_title')} />
+          </ListItem>
+        </List>
+      </div>
+    );
+  }
   return (
     <div>
       <List>
@@ -131,6 +152,12 @@ function PathSelection({
             <BeachAccessIcon />
           </ListItemIcon>
           <ListItemText primary={t('beach_title')} />
+        </ListItem>
+        <ListItem button onClick={() => setSubSelection('bike')}>
+          <ListItemIcon>
+            <DirectionsBikeIcon />
+          </ListItemIcon>
+          <ListItemText primary={t('bike_title')} />
         </ListItem>
       </List>
     </div>

@@ -9,6 +9,7 @@ import artWalkThreeIS from './translations/artwalkthree_is.json';
 import artWalkFourIS from './translations/artwalkfour_is.json';
 import beachWalks from './translations/beachwalks.json';
 import running from './translations/running.json';
+import bike from './translations/bike.json';
 
 // the translations
 import { initReactI18next } from 'react-i18next';
@@ -26,6 +27,7 @@ const resources = {
       ...artWalkFourIS,
       ...beachWalks,
       ...running,
+      ...bike,
     },
   },
 };

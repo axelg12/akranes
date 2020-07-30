@@ -24,7 +24,7 @@ const markers = rawJson.map((marker) => {
         more: '',
       },
       img: getCircleImage(marker.id),
-      paths: marker.paths.split(','),
+      paths: marker.paths.split(',').map((marker) => marker.trim()),
     };
     if (marker.more) {
       markerInfo.info.more = marker.more;

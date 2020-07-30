@@ -4,7 +4,9 @@ import akrafjall from './images/akrafjall.png';
 import gudlaug from './images/gudlaug.png';
 import langisandur from './images/langisandur.png';
 import breidin from './images/breidin.png';
-import gardar from './images/byggdasafn.png';
+import gardar from './images/gardar.png';
+import gardalundur from './images/gardalundur.png';
+
 // artwalk 1
 import hringras from './images/hringras.png';
 import thorgeir from './images/thorgeir.png';
@@ -48,6 +50,13 @@ import krokalonStart from './images/krokalonStart.png';
 import krokalonEnd from './images/krokalonEnd.png';
 import solmundarhofdi from './images/solmundarhofdi.png';
 import aefingartaeki from './images/aefingartaeki.png';
+
+// bikes
+import grundaskoli from './images/grundaskoli.png';
+import eyrarflot from './images/eyrarflot.png';
+import bjarkargrund from './images/bjarkargrund.png';
+import grenigrund from './images/grenigrund.png';
+import jorundarholt from './images/jorundarholt.png';
 
 interface Dic {
   [key: string]: string;
@@ -95,7 +104,12 @@ const smallImageMapper: Dic = {
   krokalonEnd: krokalonEnd,
   solmundarhofdi: solmundarhofdi,
   aefingartaeki: aefingartaeki,
-  gardalundur: baskaganga,
+  gardalundur: gardalundur,
+  grundaskoli: grundaskoli,
+  eyrarflot: eyrarflot,
+  bjarkargrund: bjarkargrund,
+  grenigrund: grenigrund,
+  jorundarholt: jorundarholt,
 };
 
 export function getCircleImage(pathID: string) {

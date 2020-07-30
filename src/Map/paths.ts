@@ -1,5 +1,5 @@
 import markers from './markers';
-import runningPath from './paths/runningPath';
+import { running3, running2, running1 } from './paths/runningPath';
 import { ALL_MARKERS } from './markers';
 import artWalk1, { artWalkOneMarkers } from './paths/artWalk1';
 import artWalk2, { artWalkTwoMarkers } from './paths/artWalk2';
@@ -8,6 +8,7 @@ import artWalk4, { artWalkFourMarkers } from './paths/artWalk4';
 import beachwalk1, { beachWalkOneMarkers } from './paths/beachwalk1';
 import beachwalk2, { beachWalkTwoMarkers } from './paths/beachwalk2';
 import beachwalk3, { beachWalkThreeMarkers } from './paths/beachwalk3';
+import { bike3k, bike10k, bike3KMarkers, bike10KMarkers } from './paths/bikes';
 
 const options = {
   strokeColor: '#BAA390',
@@ -45,7 +46,7 @@ function getPathInfoById(pathID: string) {
       cardImg = '/akranes/large/listganga4.png';
       position = { lat: 64.319392, lng: -22.046 };
       break;
-    case 'running':
+    case 'running_three':
       cardImg = '/akranes/large/hlaup.png';
       position = { lat: 64.317597, lng: -22.054151 };
       break;
@@ -60,6 +61,22 @@ function getPathInfoById(pathID: string) {
     case 'beach_three':
       cardImg = '/akranes/large/beachwalk3.png';
       position = { lat: 64.316961, lng: -22.060202 };
+      break;
+    case 'running_one':
+      cardImg = '/akranes/large/beachwalk3.png';
+      position = { lat: 64.319626, lng: -22.08087 };
+      break;
+    case 'running_two':
+      cardImg = '/akranes/large/beachwalk3.png';
+      position = { lat: 64.318615, lng: -22.052767 };
+      break;
+    case 'bike_one':
+      cardImg = '/akranes/large/bike1.png';
+      position = { lat: 64.3152673, lng: -22.0618914 };
+      break;
+    case 'bike_two':
+      cardImg = '/akranes/large/bike2.png';
+      position = { lat: 64.319856, lng: -22.043744 };
       break;
     default:
       cardImg = '/akranes/large/akranes.png';
@@ -90,12 +107,28 @@ const allMarkers = markers
 
 function getMarkersByPath(pathId: string) {
   switch (pathId) {
-    case 'running':
+    case 'running_one':
       return {
         markers: [],
         path: {
           color: '#005a9c',
-          polylines: [runningPath],
+          polylines: [running1],
+        },
+      };
+    case 'running_two':
+      return {
+        markers: [],
+        path: {
+          color: '#005a9c',
+          polylines: [running2],
+        },
+      };
+    case 'running_three':
+      return {
+        markers: [],
+        path: {
+          color: '#005a9c',
+          polylines: [running3],
         },
       };
     case 'art_one':
@@ -154,6 +187,22 @@ function getMarkersByPath(pathId: string) {
         path: {
           color: '#005a9c',
           polylines: [beachwalk3],
+        },
+      };
+    case 'bike_one':
+      return {
+        markers: bike3KMarkers,
+        path: {
+          color: '#005a9c',
+          polylines: [bike3k],
+        },
+      };
+    case 'bike_two':
+      return {
+        markers: bike10KMarkers,
+        path: {
+          color: '#005a9c',
+          polylines: [bike10k],
         },
       };
     default:

@@ -13,7 +13,7 @@
     "lat": 64.319839,
     "lng": -22.044944,
     "more": "",
-    "paths": ""
+    "paths": "bike2"
   },
   {
     "id": "gudlaug",
@@ -21,7 +21,7 @@
     "lat": 64.316989,
     "lng": -22.060192,
     "more": "",
-    "paths": "beach3"
+    "paths": "beach3, bike2"
   },
   {
     "id": "akrafjall",
@@ -349,7 +349,7 @@
     "lat": 64.316806,
     "lng": -22.057889,
     "more": "",
-    "paths": "beach3"
+    "paths": "beach3, bike1"
   },
   {
     "id": "gardalundur",
@@ -358,5 +358,45 @@
     "lng": -22.036703,
     "more": "",
     "paths": ""
+  },
+  {
+    "id": "grundaskoli",
+    "name": "",
+    "lat": 64.319028,
+    "lng": -22.056278,
+    "more": "",
+    "paths": "bike1"
+  },
+  {
+    "id": "eyrarflot",
+    "name": "",
+    "lat": 64.321667,
+    "lng": -22.055528,
+    "more": "",
+    "paths": "bike1"
+  },
+  {
+    "id": "bjarkargrund",
+    "name": "",
+    "lat": 64.317472,
+    "lng": -22.049389,
+    "more": "",
+    "paths": "bike1"
+  },
+  {
+    "id": "grenigrund",
+    "name": "",
+    "lat": 64.315889,
+    "lng": -22.045667,
+    "more": "",
+    "paths": "bike1"
+  },
+  {
+    "id": "jorundarholt",
+    "name": "",
+    "lat": 64.317028,
+    "lng": -22.038694,
+    "more": "",
+    "paths": "bike1"
   }
 ]

@@ -132,7 +132,11 @@ function Map({
                       label={{
                         fontSize: '12px',
                         color: '#616161',
-                        text: t(`${marker.id}_title`),
+                        text:
+                          t(`${marker.id}_alternativeTitle`) !==
+                          `${marker.id}_alternativeTitle`
+                            ? t(`${marker.id}_alternativeTitle`)
+                            : t(`${marker.id}_title`),
                       }}
                     />
                   );
