@@ -80,6 +80,7 @@ function Map({
     setMarker(null);
   }
   const markerAndPathInfo = getMarkersByPath(pathId);
+  const alternativeTitles = ['thorgeir', 'bowie', 'vinaminni', 'hb'];
   return (
     <Fragment>
       <div className="Map">
@@ -132,11 +133,9 @@ function Map({
                       label={{
                         fontSize: '12px',
                         color: '#616161',
-                        text:
-                          t(`${marker.id}_alternativeTitle`) !==
-                          `${marker.id}_alternativeTitle`
-                            ? t(`${marker.id}_alternativeTitle`)
-                            : t(`${marker.id}_title`),
+                        text: alternativeTitles.includes(marker.id)
+                          ? t(`${marker.id}_alternativeTitle`)
+                          : t(`${marker.id}_title`),
                       }}
                     />
                   );
@@ -156,7 +155,11 @@ function Map({
           )}
         </Drawer>
       </div>
-      <ListView googleMap={googleMap} pathId={pathId} />
+      <ListView
+        googleMap={googleMap}
+        selectedMarker={selectedMarker}
+        pathId={pathId}
+      />
     </Fragment>
   );
 }
